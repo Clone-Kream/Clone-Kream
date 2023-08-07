@@ -2,12 +2,16 @@
 
 ## 폴더 컨벤션
 
+- 도메인(기능) 별로 폴더 생성
+- 임시 mock data를 위한 data들은 {도메인}.data.js
+- style-components의 파일 명은 {도메인}.style.js
+  - 그 후 as S로 import 하기
 - 폴더는 무조건 소문자로만 EX => pages
 - 컴포넌트 파일은 무조건 PascalCase Ex => Todo.jsx
-- style은 styled-components(st붙여서 파일 생성)
 
 ## 코드,변수 컨벤션
 
+- 주석은 /\*\* \*/ 사용(마우스 커서만 대도 알 수 있게)
 - .env, api, key는 무조건 대문자로만
 - 함수명은 camelCase
 - 컴포넌트, 생성자 함수, Class는 PascalCase
