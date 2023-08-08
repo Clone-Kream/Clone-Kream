@@ -1,7 +1,7 @@
-import React from "react";
+import MyWrap from "../components/my/MyWrap";
 
 const MyPage = () => {
-  return <h1>My Page</h1>;
+  return <MyWrap />;
 };
 
 export default MyPage;
