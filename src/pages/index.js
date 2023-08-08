@@ -7,6 +7,7 @@ import ShopPage from "./ShopPage";
 import StyleDetailPage from "./StyleDetailPage";
 import StylePage from "./StylePage";
 import SearchPage from "./SearchPage";
+import JoinPage from "./JoinPage";
 
 export {
   LoginPage,
@@ -18,4 +19,5 @@ export {
   StyleDetailPage,
   StylePage,
   SearchPage,
+  JoinPage,
 };

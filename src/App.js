@@ -11,6 +11,7 @@ import {
   MyPage,
   NotFoundPage,
   SearchPage,
+  JoinPage,
 } from "./pages";
 import GlobalStyle from "./global/GlobalStyle";
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="/style" element={<StylePage />} />
         <Route path="/style/:styleId" element={<StyleDetailPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/join" element={<JoinPage />} />
         <Route path="/myPage" element={<MyPage />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="*" element={<NotFoundPage />} />

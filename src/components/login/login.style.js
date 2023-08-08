@@ -70,9 +70,8 @@ export const SignUp = styled.div`
 `;
 export const LoginButton = styled.button`
   ${(props) => {
-    console.log(props.loginby);
     if (props.loginby === "email") {
-      return `
+      return css`
         background-color: red;
       `;
     }

@@ -29,9 +29,10 @@ const LoginWrap = () => {
   const [loginInput, setloginInput] = useState(initialLoginInput);
   const [isLoginFormValid, setIsLoginFormValid] = useState(false);
   const handleLoginInput = (event) => {
+    const { name, value } = event.target;
     setloginInput({
       ...loginInput,
-      [event.target.name]: event.target.value,
+      [name]: value,
     });
   };
   // 로그인 폼 유효성 검사
