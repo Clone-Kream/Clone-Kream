@@ -1,7 +1,12 @@
 import React from "react";
+import LoginWrap from "../components/login/LoginWrap";
 
 const LoginPage = () => {
-  return <h1>LoginPage</h1>;
+  return (
+    <>
+      <LoginWrap />
+    </>
+  );
 };
 
 export default LoginPage;
