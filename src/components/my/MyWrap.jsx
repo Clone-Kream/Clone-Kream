@@ -14,11 +14,11 @@ const MyWrap = () => {
   const [rendered, setRendered] = useState("마이 페이지");
 
   const renderPage = {
-    "마이 페이지": <MyInfo />,
-    "구매 내역": <Purchase />,
-    "판매 내역": <Sale />,
+    "마이 페이지": <MyInfo rendered={rendered} setRendered={setRendered} />,
+    "구매 내역": <Purchase rendered={rendered} setRendered={setRendered} />,
+    "판매 내역": <Sale rendered={rendered} setRendered={setRendered} />,
     "관심 상품": <Interest />,
-    "금액 관리": <Amount />,
+    "금액 관리": <Amount rendered={rendered} setRendered={setRendered} />,
     "프로필 관리": <Profile />,
   };
 

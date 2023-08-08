@@ -288,6 +288,15 @@ export const PurchaseContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    button {
+      background-color: #fff;
+      border: 1px solid #ebebeb;
+      color: rgba(34, 34, 34, 0.8);
+      padding: 1rem;
+      border-radius: 1.2rem;
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
   }
   ul {
     display: flex;
@@ -308,6 +317,7 @@ export const PurchaseContainer = styled.div`
         font-size: 20px;
         font-weight: 700;
         color: #222;
+        transition: color 0.35s ease 0s;
       }
       .number-active {
         color: #f15746;
@@ -316,6 +326,7 @@ export const PurchaseContainer = styled.div`
         color: #22222280;
         font-weight: 700;
         font-size: 1.3rem;
+        transition: color 0.35s ease 0s;
       }
       .title-active {
         color: #222;
@@ -384,3 +395,6 @@ export const Table = styled.ul`
     }
   }
 `;
+
+// 금액 관리
+// export const

@@ -2,26 +2,36 @@ import React, { useState } from "react";
 import * as S from "./my.style";
 import Direct from "./Direct";
 import History from "./History";
+import {
+  allData,
+  buyingData,
+  finishData,
+  saleAllData,
+  saleBuyingData,
+  saleFinishData,
+  saleWaitingData,
+  waitingData,
+} from "./my.data";
 
-const MyInfo = () => {
+const MyInfo = (props) => {
   const [saleHistory, setSaleHistory] = useState({
     title: "판매 내역",
     moreLink: "/",
     tab1: {
       label: "총 판매",
-      number: 0,
+      number: saleAllData.length,
     },
     tab2: {
-      label: "판매대기",
-      number: 1,
+      label: "판매 대기",
+      number: saleWaitingData.length,
     },
     tab3: {
       label: "판매 중",
-      number: 2,
+      number: saleBuyingData.length,
     },
     tab4: {
       label: "정산완료",
-      number: 3,
+      number: saleFinishData.length,
     },
   });
 
@@ -30,19 +40,19 @@ const MyInfo = () => {
     moreLink: "/",
     tab1: {
       label: "총 구매",
-      number: 0,
+      number: allData.length,
     },
     tab2: {
-      label: "입출 중",
-      number: 1,
+      label: "구매 대기",
+      number: waitingData.length,
     },
     tab3: {
       label: "진행 중",
-      number: 2,
+      number: buyingData.length,
     },
     tab4: {
       label: "정산완료",
-      number: 3,
+      number: finishData.length,
     },
   });
 
@@ -75,8 +85,8 @@ const MyInfo = () => {
       </S.MyPageContainer>
 
       <Direct />
-      <History data={saleHistory} />
-      <History data={purchase} />
+      <History data={saleHistory} render={props} />
+      <History data={purchase} render={props} />
     </>
   );
 };
