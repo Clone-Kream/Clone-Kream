@@ -4,12 +4,12 @@ import { propose, popular, recent } from "./search.data";
 
 const SearchWrap = () => {
   /** 추천 검색어 뿌려주는 함수 */
-  const getPropose = () => {
+  const getProposeProduct = () => {
     return propose.map((el, index) => <li key={index}>{el}</li>);
   };
 
   /** 인기 검색어 뿌려주는 함수 */
-  const getPopular = () => {
+  const getPopularProduct = () => {
     return popular.map((el, index) => (
       <li key={el.id}>
         <span>{index + 1}</span>
@@ -19,7 +19,7 @@ const SearchWrap = () => {
   };
 
   /** 최근 본 상품 뿌려주는 함수*/
-  const getRecent = () => {
+  const getRecentProduct = () => {
     return recent.map((el, index) => (
       <li key={index}>
         <img src={el.img} alt={el.alt} />
@@ -50,7 +50,7 @@ const SearchWrap = () => {
       <S.SectionList>
         <S.ProposeBox>
           <S.Label>추천 검색어</S.Label>
-          <ul>{getPropose()}</ul>
+          <ul>{getProposeProduct()}</ul>
         </S.ProposeBox>
 
         <S.PopularBox>
@@ -60,7 +60,7 @@ const SearchWrap = () => {
               {month}.{day} {hour}:00 기준
             </span>
           </div>
-          <ul>{getPopular()}</ul>
+          <ul>{getPopularProduct()}</ul>
         </S.PopularBox>
 
         <S.RecentBox>
@@ -68,7 +68,7 @@ const SearchWrap = () => {
             <S.Label>최근 본 상품</S.Label>
             <span>지우기</span>
           </div>
-          <ul>{getRecent()}</ul>
+          <ul>{getRecentProduct()}</ul>
         </S.RecentBox>
       </S.SectionList>
     </S.Container>

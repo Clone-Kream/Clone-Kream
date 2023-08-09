@@ -91,6 +91,13 @@ export const LoginButton = styled.button`
   font-weight: 600;
   font-size: 1.4rem;
   cursor: pointer;
+  a {
+    color: black;
+    text-decoration: none;
+    width:100%;
+    height:100%;
+    position:absolute;
+  }
   div {
     position: absolute;
     top: calc(50% - 1.5rem);
@@ -102,5 +109,5 @@ export const LoginButton = styled.button`
       width: 100%;
       height: 100%;
     }
-  }
+  
 `;

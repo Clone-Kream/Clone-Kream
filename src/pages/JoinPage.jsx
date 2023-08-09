@@ -1,6 +1,7 @@
 import React from "react";
+import JoinWrap from "../components/join/JoinWrap";
 
 const JoinPage = (props) => {
-  return <>Join Page</>;
+  return <JoinWrap />;
 };
 export default JoinPage;
