@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import { allData } from "./my.data";
 
 export const MyContainer = styled.div`
   width: 120rem;
@@ -397,4 +398,76 @@ export const Table = styled.ul`
 `;
 
 // 금액 관리
-// export const
+export const AmountContainer = styled.div`
+  /* background-color: skyblue; */
+`;
+export const AmountSection = styled.div`
+  /* background-color: pink; */
+  padding-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+
+  .amount-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% / 3 - 6rem);
+    height: 7rem;
+    border-radius: 1.2rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    gap: 2rem;
+    .svg-box {
+      padding: 1rem;
+      border-radius: 1.2rem;
+      svg {
+        width: 3rem;
+        height: 3rem;
+      }
+    }
+
+    .card {
+      background-color: #4241a4;
+    }
+    .cash {
+      background-color: #5e87fe;
+    }
+    .fund {
+      background-color: #fa6e7a;
+    }
+    .price-info-box {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      .total-price {
+      }
+      .title {
+        font-size: 1.4rem;
+      }
+    }
+  }
+  .purchase {
+    background-color: #4d4cac;
+  }
+  .sale {
+    background-color: #659cff;
+  }
+  .revenue {
+    background-color: #ff808b;
+  }
+`;
+
+export const Chart = styled.div`
+  background-color: #fff;
+  border: 2px solid #eee;
+  margin-top: 3rem;
+  border-radius: 2rem;
+  padding: 0.5rem;
+`;
+
+export const AmountBottom = styled.div`
+  background-color: yellowgreen;
+`;
