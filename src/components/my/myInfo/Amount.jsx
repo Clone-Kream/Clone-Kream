@@ -1,165 +1,126 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import * as S from "../my.style.js";
-import {
-  AiFillCreditCard,
-  AiFillDollarCircle,
-  AiFillFund,
-} from "react-icons/ai";
-import ApexChart from "react-apexcharts";
-import {
-  saleYearData,
-  purchaseYearData,
-  revenueYearData,
-  month,
-} from "../my.data.js";
+import { AiFillCalendar, AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
+import { FaExchangeAlt } from "react-icons/fa";
+
+import AreaChart from "./chart/AreaChart.jsx";
+import PieChart from "./chart/PieChart.jsx";
+import BarChart from "./chart/BarChartN.jsx";
+import CardBox from "./CardBox.jsx";
 
 const Amount = (props) => {
-  const chartInfo = {
-    options: {
-      chart: {
-        type: "area",
-        height: "60rem",
-        toolbar: {
-          show: false,
-        },
-      },
-      xaxis: {
-        //x축
-        categories: month,
-      },
-      stroke: {
-        curve: "smooth",
-        show: true,
-        lineCap: "butt",
-        colors: ["#4241a4", "#5e87fe", "#fa6e7a"],
-        width: 3,
-      },
-      dataLabels: {
-        // 꼭짓점에 생기는 값
-        enabled: false,
-      },
-      // title: {
-      //   text: "title",
-      //   align: "left",
-      //   margin: 40,
-      //   style: {
-      //     fontSize: "2.4rem",
-      //     fontWeight: "bold",
-      //     color: "#263238",
-      //   },
-      // },
-      // subtitle: {
-      //   text: "subtitle",
-      //   align: "center",
-      //   margin: 10,
-      //   style: {
-      //     fontSize: "12px",
-      //     fontWeight: "normal",
-      //     fontFamily: undefined,
-      //     color: "#9699a2",
-      //   },
-      // },
-      tooltip: {
-        x: {
-          show: true,
-        },
-      },
-      fill: {
-        colors: ["#4d4cac", "#659cff", "#ff808b"],
-        opacity: 0.3,
-        type: "solid",
-      },
-      legend: {
-        show: true,
-        position: "top",
-        fontSize: "1.8rem",
-        fontWeight: 700,
-        // labels: {
-        //   colors: ["#4d4cac", "#659cff", "#ff808b"],
-        // },
-      },
-      labels: ["Apples", "Oranges", "Berries"],
+  // console.log(props);
+  const [dropValue, setDropValue] = useState("연간");
 
-      markers: {
-        size: 1,
-        colors: ["#4d4cac", "#659cff", "#ff808b"],
-      },
-    },
-    series: [
-      {
-        name: "구매",
-        data: purchaseYearData,
-      },
-      {
-        name: "판매",
-        data: saleYearData,
-      },
-      {
-        name: "수익",
-        data: revenueYearData,
-      },
-    ],
+  const [dropOpen, setDropOpen] = useState(false);
+
+  const dropdownRef = useRef(null);
+
+  /**드롭박스 누르면 열리고 닫히는 함수 */
+  const clickDropOpen = (e) => {
+    e.stopPropagation();
+    setDropOpen((prev) => !prev);
   };
 
-  // console.log(chartInfo.options);
+  /**드롭박스의 값을 누르면 값을 변경해주는 함수 */
+  const clickDropValue = (e) => {
+    setDropValue(e.target.innerText);
+  };
+
+  const [title, setTitle] = useState("구매량");
+
+  /** 스위치 아이콘 누르면 BarChart 타이틀 변경해주는 함수 */
+  const clickChangeTitle = () => {
+    if (title === "판매량") {
+      setTitle("구매량");
+    } else {
+      setTitle("판매량");
+    }
+  };
+
+  // console.log(new Date("2023-07-28").getDate());
+
+  // 드롭다운 바깥부분 누르면 닫히도록
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropOpen(false);
+      }
+    };
+
+    window.addEventListener("click", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
+  /**드롭다운 컴포넌트 return 해주는 함수 */
+  const checkDropOpen = () => {
+    return (
+      dropOpen && (
+        <ul className="time-dropbox_list">
+          <li className="list-item" onClick={clickDropValue}>
+            연간
+          </li>
+          <li className="list-item" onClick={clickDropValue}>
+            월간
+          </li>
+          <li className="list-item" onClick={clickDropValue}>
+            주간
+          </li>
+        </ul>
+      )
+    );
+  };
 
   return (
     <S.AmountContainer>
       <S.TitleLabel>금액관리</S.TitleLabel>
       <S.AmountSection>
-        <div className="purchase amount-card">
-          <div className="svg-box card">
-            <AiFillCreditCard />
-          </div>
-          <div className="price-info-box">
-            <div className="total-price">650,000 원</div>
-            <div className="title">총 구매액</div>
-          </div>
-        </div>
-        <div className="sale amount-card">
-          <div className="svg-box cash">
-            <AiFillDollarCircle />
-          </div>
-          <div className="price-info-box">
-            <div className="total-price">250,000 원</div>
-            <div className="title">총 판매액</div>
-          </div>
-        </div>
-        <div className="revenue amount-card">
-          <div className="svg-box fund">
-            <AiFillFund />
-          </div>
-          <div className="price-info-box">
-            <div className="total-price">50,000 원</div>
-            <div className="title">총 수익</div>
-          </div>
-        </div>
+        <CardBox />
       </S.AmountSection>
 
-      <S.Chart>
-        <ApexChart
-          type="area"
-          series={chartInfo.series}
-          options={chartInfo.options}
-        />
-      </S.Chart>
-
-      {/* <S.Chart>
-        chart
-        <div className="time-dropbox">
-          <div className="logo"></div>
-          <div className="time-dropbox_list">
-            <div className="list-item">연간</div>
-            <div className="list-item">월간</div>
-            <div className="list-item">주간</div>
+      <S.ChartContainer>
+        <div className="top">
+          <S.SubTitle>{dropValue} 금액 비교</S.SubTitle>
+          <div
+            className="time-dropbox"
+            onClick={clickDropOpen}
+            ref={dropdownRef}
+          >
+            <AiFillCalendar className="calendar" />
+            <div className="time-value">{dropValue}</div>
+            {dropOpen ? (
+              <AiFillCaretUp className="arrow" />
+            ) : (
+              <AiFillCaretDown className="arrow" />
+            )}
+            {checkDropOpen()}
           </div>
         </div>
-      </S.Chart>
 
-      <S.AmountBottom className="amount-bottom">
-        <div className="amount-daily">주간</div>
-        <div className="amount-yearly">월간</div>
-      </S.AmountBottom> */}
+        <S.Chart>
+          <AreaChart />
+        </S.Chart>
+      </S.ChartContainer>
+
+      <S.AmountBottom>
+        <div className="amount-bar">
+          <div className="flex">
+            <S.SubTitle>{title}</S.SubTitle>
+            <FaExchangeAlt onClick={clickChangeTitle} />
+          </div>
+          <BarChart />
+        </div>
+
+        <div className="amount-pie">
+          <div className="flex">
+            <S.SubTitle>Report</S.SubTitle>
+          </div>
+          <PieChart />
+        </div>
+      </S.AmountBottom>
     </S.AmountContainer>
   );
 };

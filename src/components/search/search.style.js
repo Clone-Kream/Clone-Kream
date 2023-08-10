@@ -5,6 +5,15 @@ export const Container = styled.div`
   padding-top: 5rem;
   width: 80rem;
   margin: 0 auto 5rem;
+  position: relative;
+  svg {
+    position: absolute;
+    width: 4rem;
+    height: 4rem;
+    top: 2rem;
+    left: 105%;
+    cursor: pointer;
+  }
 `;
 
 export const Label = styled.label`

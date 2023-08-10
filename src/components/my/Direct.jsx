@@ -3,9 +3,12 @@ import * as S from "./my.style";
 import { AiOutlineRight } from "react-icons/ai";
 import { AiOutlineBarChart } from "react-icons/ai";
 
-const Direct = () => {
+const Direct = (props) => {
+  const onClickChart = () => {
+    props.render.setRendered("금액 관리");
+  };
   return (
-    <S.Direct>
+    <S.Direct onClick={onClickChart}>
       <div className="direct-left">
         <div className="direct-logo">
           <AiOutlineBarChart className="chart" />

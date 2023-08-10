@@ -84,7 +84,7 @@ const MyInfo = (props) => {
         </S.UserMetaBox>
       </S.MyPageContainer>
 
-      <Direct />
+      <Direct render={props} />
       <History data={saleHistory} render={props} />
       <History data={purchase} render={props} />
     </>

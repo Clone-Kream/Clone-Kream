@@ -1,5 +1,4 @@
 import { styled } from "styled-components";
-import { allData } from "./my.data";
 
 export const MyContainer = styled.div`
   width: 120rem;
@@ -399,8 +398,9 @@ export const Table = styled.ul`
 
 // 금액 관리
 export const AmountContainer = styled.div`
-  /* background-color: skyblue; */
+  padding-bottom: 10rem;
 `;
+
 export const AmountSection = styled.div`
   /* background-color: pink; */
   padding-top: 2rem;
@@ -460,14 +460,192 @@ export const AmountSection = styled.div`
   }
 `;
 
+export const ChartContainer = styled.div`
+  margin-top: 3rem;
+  .top {
+    display: flex;
+    justify-content: space-between;
+    .time-dropbox {
+      width: 12rem;
+      height: 3rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      cursor: pointer;
+      padding: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      position: relative;
+      .calendar {
+        width: 2.4rem;
+        height: 2.4rem;
+        fill: #636ab6;
+      }
+      .time-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #636ab6;
+        display: flex;
+        &::before {
+          content: "";
+          width: 1px;
+          height: 1.5rem;
+          background-color: #636ab6;
+          margin-right: 1rem;
+        }
+      }
+      .arrow {
+        width: 1.8rem;
+        height: 1.8rem;
+        fill: #636ab6;
+      }
+
+      .time-dropbox_list {
+        position: absolute;
+        z-index: 1;
+        top: 120%;
+        width: 12rem;
+        display: flex;
+        flex-direction: column;
+        border-radius: 0.8rem;
+        overflow: hidden;
+        li {
+          width: 100%;
+          height: 2.5rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #fff;
+          font-size: 1.5rem;
+          font-weight: 700;
+          background-color: #3182f6;
+          border-bottom: 1px solid #c9e2ff;
+          transition: all 0.3s;
+          &:last-child(1) {
+            border: none;
+          }
+          &:hover {
+            background-color: #1b64da;
+          }
+        }
+      }
+    }
+  }
+`;
+
 export const Chart = styled.div`
   background-color: #fff;
   border: 2px solid #eee;
-  margin-top: 3rem;
   border-radius: 2rem;
   padding: 0.5rem;
+  margin-top: 1.2rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  .tooltip {
+    width: 12rem;
+    height: 11rem;
+    border: 1px solid #e3e3e3;
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 5px;
+    box-shadow: 2px 2px 6px -4px #999;
+    cursor: default;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .header {
+      background-color: #ddd;
+      height: 2.5rem;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #999;
+      padding: 0 0.5rem;
+      font-weight: 700;
+    }
+    .item {
+      display: flex;
+      align-items: center;
+      padding: 0.5rem;
+      .circle {
+        width: 1.8rem;
+        height: 1.8rem;
+        border-radius: 50%;
+        margin-right: 0.5rem;
+      }
+      .title {
+        font-size: 1.2rem;
+        margin-right: 0.5rem;
+      }
+      .value {
+        font-size: 1.2rem;
+      }
+    }
+  }
 `;
 
 export const AmountBottom = styled.div`
-  background-color: yellowgreen;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  height: 45rem;
+  gap: 1rem;
+
+  .amount-bar {
+    background: #fff;
+    padding-top: 1rem;
+    width: calc(100% / 2 - 1rem);
+    border-radius: 2rem;
+    border: 2px solid #eee;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+    .flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      svg {
+        width: 1.8rem;
+        height: 1.8rem;
+        margin-right: 1.2rem;
+        cursor: pointer;
+        fill: #626768;
+      }
+    }
+  }
+  .amount-pie {
+    padding-top: 1rem;
+    width: calc(100% / 2 - 1rem);
+    border-radius: 2rem;
+    border: 2px solid #eee;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+
+    .arrow_box {
+      padding: 1rem 2rem;
+      color: #fff;
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+    .purple {
+      background-color: #4d4cac;
+    }
+    .blue {
+      background-color: #659cff;
+    }
+    .pink {
+      background-color: #ff808b;
+    }
+  }
+`;
+export const SubTitle = styled.div`
+  font-size: 2.2rem;
+  font-weight: 700;
+  padding: 0 1.2rem;
+  box-sizing: border-box;
+  color: #626768;
+`;
+export const ChangeTitle = styled.div`
+  font-size: 1.4rem;
+  font-weight: 500;
+  padding: 0 1.2rem;
+  box-sizing: border-box;
+  color: #ddd;
+  cursor: pointer;
 `;
