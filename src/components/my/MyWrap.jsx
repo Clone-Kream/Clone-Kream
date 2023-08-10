@@ -1,13 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import MyInfo from "./MyInfo";
-import Purchase from "./shoppingInfo/Purchase";
-import Sale from "./shoppingInfo/Sale";
 import Interest from "./shoppingInfo/Interest";
 import Amount from "./myInfo/Amount";
-import Profile from "./myInfo/Profile";
 import * as S from "./my.style";
 import { shoppingInfo, myInfo } from "../my/my.data";
+import Receipt from "./shoppingInfo/Receipt";
 
 const MyWrap = () => {
   //localStorage로 저장해서 있으면 해당걸로, 없으면 마이페이지로
@@ -15,11 +13,10 @@ const MyWrap = () => {
 
   const renderPage = {
     "마이 페이지": <MyInfo rendered={rendered} setRendered={setRendered} />,
-    "구매 내역": <Purchase rendered={rendered} setRendered={setRendered} />,
-    "판매 내역": <Sale rendered={rendered} setRendered={setRendered} />,
+    "구매 내역": <Receipt rendered={rendered} setRendered={setRendered} />,
+    "판매 내역": <Receipt rendered={rendered} setRendered={setRendered} />,
     "관심 상품": <Interest />,
     "금액 관리": <Amount />,
-    "프로필 관리": <Profile />,
   };
 
   /** 클릭하면 target의 값을 rendered state를 바꿔주는 함수 */

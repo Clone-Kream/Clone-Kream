@@ -6,9 +6,14 @@ import {
   saleFinishData,
   tabs,
   saleWaitingData,
+  waitingData,
+  allData,
+  finishData,
+  buyingData,
 } from "../my.data";
 
-const Sale = () => {
+const Receipt = (props) => {
+  // console.log(props.rendered === "판매 내역");
   const [tabState, setTabState] = useState("전체");
 
   // 현재 데이터 상태
@@ -91,16 +96,23 @@ const Sale = () => {
     let filteredData = [];
     switch (tabState) {
       case "판매대기":
-        filteredData = saleWaitingData;
+        filteredData =
+          props.rendered === "구매 내역" ? waitingData : saleWaitingData;
+        // filteredData = saleWaitingData;
         break;
       case "판매 중":
-        filteredData = saleBuyingData;
+        filteredData =
+          props.rendered === "구매 내역" ? buyingData : saleBuyingData;
+        // filteredData = saleBuyingData;
         break;
       case "정산 완료":
-        filteredData = saleFinishData;
+        filteredData =
+          props.rendered === "구매 내역" ? finishData : saleFinishData;
+        // filteredData = saleFinishData;
         break;
       default:
-        filteredData = saleAllData;
+        filteredData = props.rendered === "구매 내역" ? allData : saleAllData;
+      // filteredData = saleAllData;
     }
 
     // 상품명을 작성했을 때
@@ -110,6 +122,7 @@ const Sale = () => {
 
     // 날짜를 지정했을 때
     if (date !== "") {
+      console.log(filteredData);
       filteredData = dataState.filter(
         (el) => el.purchaseDate.replace(/\./g, "-") === date
       );
@@ -124,20 +137,25 @@ const Sale = () => {
       );
     }
 
-    return filteredData.map((data) => (
-      <li className="item" key={data.id}>
-        <div className="item_desc imgBox">
-          <img className="item_desc" src={data.img} alt="상품" />
-        </div>
-        <div className="item_desc">{data.name}</div>
-        <div className="item_desc">
-          {formatPrice(data.price)}원({data.quantity}개)
-        </div>
-        <div className="item_desc">{data.purchaseDate}</div>
-        <div className="item_desc">{data.status}</div>
-        <div className="item_desc">{data.method}</div>
-      </li>
-    ));
+    console.log(filteredData.length);
+    if (filteredData.length === 0) {
+      return <div className="error">조회된 상품이 없습니다.</div>;
+    } else {
+      return filteredData.map((data) => (
+        <li className="item" key={data.id}>
+          <div className="item_desc imgBox">
+            <img className="item_desc" src={data.img} alt="상품" />
+          </div>
+          <div className="item_desc">{data.name}</div>
+          <div className="item_desc">
+            {formatPrice(data.price)}원({data.quantity}개)
+          </div>
+          <div className="item_desc">{data.purchaseDate}</div>
+          <div className="item_desc">{data.status}</div>
+          <div className="item_desc">{data.method}</div>
+        </li>
+      ));
+    }
   };
 
   const onClickReset = () => {
@@ -149,7 +167,11 @@ const Sale = () => {
     <S.PurchaseContainer>
       <S.TitleLabel>판매내역</S.TitleLabel>
       <div className="total">
-        총 <span className="num">{saleAllData.length}</span>건
+        총
+        <span className="num">
+          {props.rendered === "구매 내역" ? allData.length : saleAllData.length}
+        </span>
+        건
       </div>
       <div className="filter">
         <input type="date" onChange={onChangeDate} value={date || ""} />
@@ -179,4 +201,4 @@ const Sale = () => {
   );
 };
 
-export default Sale;
+export default Receipt;

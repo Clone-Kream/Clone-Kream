@@ -75,7 +75,7 @@ const Header = () => {
               <Link to="/mypage">마이페이지</Link>
               <Link to="/saved">관심상품</Link>
               <Link to="#notifications">알림</Link>
-              <Link to="/">로그아웃</Link>
+              <Link to="/login">로그인</Link>
             </div>
           </div>
           <div className="header_main">
