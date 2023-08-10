@@ -10,7 +10,7 @@ const Header = () => {
   // console.log(location);
 
   const [nowLocation, setNowLocation] = useState(location.pathname);
-  // console.log("nowLocation", nowLocation);
+  console.log("nowLocation", nowLocation);
 
   const navigate = useNavigate();
 

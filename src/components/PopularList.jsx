@@ -1,9 +1,9 @@
+import React from "react";
 import { useState } from "react";
 import { productData } from "../data/productData";
-import "../css/ProductList.css";
-import { useNavigate } from "react-router";
+import "../css/PopularList.css";
 
-const ProductList = () => {
+const PopularList = () => {
   const [visibleProducts, setVisibleProducts] = useState(
     productData.slice(0, 4) //초기값
   );
@@ -22,26 +22,16 @@ const ProductList = () => {
     }
   };
 
-  const navigate = useNavigate();
-
-  const handleClick = (id) => {
-    navigate(`/product/${id}`);
-  };
-
   return (
     <>
-      <div className="product_wrap">
+      <div className="popularproduct_wrap">
         <div className="info">
-          <p className="main_title">Just Dropped</p>
-          <p className="sub_title">발매 상품</p>
+          <p className="main_title">Most Popular</p>
+          <p className="sub_title">인기 상품</p>
         </div>
         <div className="product_container">
           {visibleProducts.map((product) => (
-            <div
-              className="product"
-              key={product.id}
-              onClick={() => handleClick(product.id)}
-            >
+            <div className="product" key={product.id}>
               <img src={product.imageUrl} alt={product.title} />
               <div className="info-box">
                 <p className="brand">{product.brand}</p>
@@ -60,4 +50,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default PopularList;

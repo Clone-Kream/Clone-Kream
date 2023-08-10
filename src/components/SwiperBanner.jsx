@@ -1,5 +1,5 @@
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
-import { bannerData } from "../data/bannerData";
+import { swiperBannerData } from "../data/swiperBannerData";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "../css/SwiperBanner.css";
 // Import Swiper styles
@@ -20,7 +20,7 @@ const SwiperBanner = () => {
       // onSwiper={(swiper) => console.log(swiper)}
       onSlideChange={() => console.log("slide change")}
     >
-      {bannerData.map((banner, index) => {
+      {swiperBannerData.map((banner, index) => {
         return (
           <SwiperSlide key={index} style={{ backgroundColor: banner.color }}>
             <img className="bannerImg" src={banner.imageUrl} alt="이미지" />
