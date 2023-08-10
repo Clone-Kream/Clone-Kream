@@ -51,7 +51,7 @@ export const Nav = styled.nav`
     }
   }
   .active {
-    color: #222;
+    color: #3182f6;
     font-weight: 700;
   }
 `;
@@ -282,19 +282,30 @@ export const PurchaseContainer = styled.div`
     padding: 0 0.5rem;
     border: 1px solid #ebebeb;
     border-radius: 8px;
+    transition: all 0.3s;
+    &:hover {
+      border: 1px solid #1b64da;
+    }
+    &:focus {
+      border: 1px solid #1b64da;
+    }
   }
+
   .filter {
     display: flex;
     justify-content: space-between;
     align-items: center;
     button {
-      background-color: #fff;
-      border: 1px solid #ebebeb;
-      color: rgba(34, 34, 34, 0.8);
       padding: 1rem;
       border-radius: 1.2rem;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #fff;
       cursor: pointer;
+      background-color: #3182f6;
+      &:hover {
+        background-color: #1b64da;
+      }
     }
   }
   ul {
@@ -332,7 +343,7 @@ export const PurchaseContainer = styled.div`
       }
     }
     .active {
-      border-bottom: 2px solid #222;
+      border-bottom: 2px solid #64a8ff;
     }
   }
 `;
@@ -344,13 +355,21 @@ export const TitleLabel = styled.div`
 export const Table = styled.ul`
   display: flex;
   flex-direction: column;
+  .error {
+    width: 100%;
+    margin-top: 1.2rem;
+    font-size: 2.2rem;
+    font-weight: 700;
+  }
   .table-title {
     display: flex;
     flex-direction: row;
     width: 100%;
     height: 3rem;
-    background-color: #eaeaea;
+    background-color: #64a8ff;
+    color: #fff;
     border-radius: 8px 8px 0 0;
+    padding-bottom: 0.5rem;
     &_item {
       width: calc(100% / 6);
       height: 3rem;
@@ -370,7 +389,13 @@ export const Table = styled.ul`
     align-items: center;
     height: 5rem;
     padding: 0 0 0.5rem 0;
-    border-bottom: 1px solid #ccc;
+    /* border-bottom: 1px solid #ccc; */
+    background-color: #c9e2ff;
+    transition: all 0.3s;
+    &:hover {
+      transform: scale(1.012);
+      border-radius: 0.8rem;
+    }
     .imgBox {
       img {
         width: 4.2rem;
@@ -387,10 +412,7 @@ export const Table = styled.ul`
       width: calc(100% / 6);
     }
     &:nth-child(2n + 1) {
-      background-color: #454f5d12;
-    }
-    &:nth-last-child(1) {
-      border: none;
+      background-color: #e8f3ff;
     }
   }
 `;
@@ -478,25 +500,25 @@ export const ChartContainer = styled.div`
       .calendar {
         width: 2.4rem;
         height: 2.4rem;
-        fill: #636ab6;
+        fill: #90c2ff;
       }
       .time-value {
         font-size: 1.5rem;
         font-weight: 700;
-        color: #636ab6;
+        color: #90c2ff;
         display: flex;
         &::before {
           content: "";
           width: 1px;
           height: 1.5rem;
-          background-color: #636ab6;
+          background-color: #ddd;
           margin-right: 1rem;
         }
       }
       .arrow {
         width: 1.8rem;
         height: 1.8rem;
-        fill: #636ab6;
+        fill: #90c2ff;
       }
 
       .time-dropbox_list {

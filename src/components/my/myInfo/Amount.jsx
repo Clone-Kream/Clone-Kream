@@ -188,7 +188,7 @@ const Amount = () => {
             <AiFillCalendar className="calendar" />
             <div className="time-value">{dropValue}</div>
             {dropOpen ? (
-              <AiFillCaretUp className="arrow" />
+              <AiFillCaretUp className="arrow " />
             ) : (
               <AiFillCaretDown className="arrow" />
             )}
