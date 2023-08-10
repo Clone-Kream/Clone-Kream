@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import * as S from "./login.style";
 import LoginButton from "./LoginButton";
+import Header from "./../Header";
+import logingImg from "../../asset/login.png";
 
 const LoginWrap = () => {
   const emailLogin = {
@@ -43,11 +45,10 @@ const LoginWrap = () => {
   };
   return (
     <S.Wrapper>
+      <Header />
       <S.LoginArea>
-        <S.Header>
-          <h1>KREAM</h1>
-          <h3>KICKS RULE EVERYTHING AROUND ME</h3>
-        </S.Header>
+        <img className="login" src={logingImg} alt="loginImg" />
+
         <S.LoginForm onSubmit={handleSubmitLoginForm}>
           <h4>이메일 주소</h4>
           <input

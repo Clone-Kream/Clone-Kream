@@ -43,9 +43,9 @@ body {
   padding: 0px 40px;
 }
 
-h1 {
-  font-size: 30px;
-  font-weight: bold;
+.logo {
+  width: 12rem;
+  height: 2.4rem;
 }
 
 .gnb {

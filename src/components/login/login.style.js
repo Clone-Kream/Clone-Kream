@@ -5,14 +5,21 @@ export const Wrapper = styled.section`
   height: 100vh;
   overflow: hidden;
   box-sizing: border-box;
+  /* background-color: pink; */
+  .login {
+    /* padding-top: 15.6rem; */
+    width: 100%;
+    height: 5.6rem;
+  }
 `;
 export const LoginArea = styled.main`
   max-width: 42rem;
   margin: 12rem auto;
-  padding: 0px 6rem;
+  padding: 6rem 6rem 0;
 `;
 export const Header = styled.header`
   text-align: center;
+
   h1 {
     font-size: 3rem;
     font-style: oblique;
@@ -94,9 +101,9 @@ export const LoginButton = styled.button`
   a {
     color: black;
     text-decoration: none;
-    width:100%;
-    height:100%;
-    position:absolute;
+    width: 100%;
+    height: 100%;
+    position: absolute;
   }
   div {
     position: absolute;
@@ -109,5 +116,5 @@ export const LoginButton = styled.button`
       width: 100%;
       height: 100%;
     }
-  
+  }
 `;

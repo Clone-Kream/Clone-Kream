@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../css/reset.css";
 import "../css/Header.css";
+import logo from "../asset/logo.png";
 
 const Header = () => {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -21,6 +22,8 @@ const Header = () => {
   const navLists = [
     { id: "/", value: "HOME" },
     { id: "/shop", value: "SHOP" },
+    { id: "/mypage", value: "MY" },
+    { id: "/login", value: "Login" },
     { id: "/search", value: "search" },
   ];
 
@@ -69,20 +72,12 @@ const Header = () => {
     <>
       <header>
         <div className="header_container">
-          <div className="top_inner">
-            <div className="top_list">
-              <Link to="/notice">고객센터</Link>
-              <Link to="/mypage">마이페이지</Link>
-              <Link to="/saved">관심상품</Link>
-              <Link to="#notifications">알림</Link>
-              <Link to="/login">로그인</Link>
-            </div>
-          </div>
           <div className="header_main">
             <div className="main_inner">
-              <h1 className="logo">
-                <Link to="/">KREAM</Link>
-              </h1>
+              <div className="logo">
+                {/* <Link to="/">KREAM</Link> */}
+                <img src={logo} alt="logo" onClick={() => navigate("/")} />
+              </div>
               <nav className="gnb">{getNavItem()}</nav>
             </div>
           </div>
@@ -104,42 +99,6 @@ const Header = () => {
                   onClick={() => handleTabClick(1)}
                 >
                   <span>랭킹</span>
-                </Link>
-              </li>
-              <li className="li_tabs">
-                <Link
-                  to="/"
-                  className={selectedTab === 2 ? "active" : ""}
-                  onClick={() => handleTabClick(2)}
-                >
-                  <span>럭셔리</span>
-                </Link>
-              </li>
-              <li className="li_tabs">
-                <Link
-                  to="/"
-                  className={selectedTab === 3 ? "active" : ""}
-                  onClick={() => handleTabClick(3)}
-                >
-                  <span>남성</span>
-                </Link>
-              </li>
-              <li className="li_tabs">
-                <Link
-                  to="/"
-                  className={selectedTab === 4 ? "active" : ""}
-                  onClick={() => handleTabClick(4)}
-                >
-                  <span>여성</span>
-                </Link>
-              </li>
-              <li className="li_tabs">
-                <Link
-                  to="/"
-                  className={selectedTab === 5 ? "active" : ""}
-                  onClick={() => handleTabClick(5)}
-                >
-                  <span>발견</span>
                 </Link>
               </li>
             </ul>
