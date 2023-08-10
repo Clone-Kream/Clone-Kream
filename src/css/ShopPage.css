@@ -1,0 +1,74 @@
+.content{
+    margin-top: 100px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+    padding: 0 40px 80px;
+    position: relative;
+}
+.filter_status, .status_box {
+    align-items: center;
+    display: flex;
+    padding-bottom: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.search_filter {
+    margin-right: 10px;
+    overflow-x: hidden;
+    padding-right: 10px;
+    position: sticky;
+    scrollbar-width: none;
+    width: 210px;
+}
+.filter_express .express_btn {
+    align-items: center;
+    border: 1px solid #ebebeb;
+    border-radius: 30px;
+    display: inline-flex;
+    flex-direction: row;
+    gap: 2.5px;
+    height: 32px;
+    padding: 8px 12px 7px;
+}
+.filter_express .express_btn .text {
+    color: rgba(34,34,34,.8);
+    font-size: 13px;
+}
+.filter_status{
+    display: flex;
+}
+.filter_list{
+    border-bottom: 1px solid #ebebeb;
+}
+.filter_title{
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 0;
+}
+.tilte_box{
+    display: flex;
+    flex-direction: column;
+    max-width: calc(100%-30px);
+}
+.main_title{
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: -.07px;
+    position: relative;
+}
+.icon_box img{
+    width: 20px;
+    height: 20px;
+}
+
+.filter_menu{
+    padding-bottom: 24px;
+}
+
+.placeholder{
+    color: #767676;
+    padding-top: 20px;
+}
