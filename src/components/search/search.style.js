@@ -80,6 +80,8 @@ export const PopularBox = styled.div`
   ul {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
+    height: 45rem;
     li {
       cursor: pointer;
       width: 50%;

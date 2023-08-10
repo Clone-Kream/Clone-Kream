@@ -7,12 +7,27 @@ import AreaChart from "./chart/AreaChart.jsx";
 import PieChart from "./chart/PieChart.jsx";
 import BarChart from "./chart/BarChartN.jsx";
 import CardBox from "./CardBox.jsx";
+import {
+  purchaseMonthData,
+  purchaseWeekData,
+  purchaseYearData,
+  revenueMonthData,
+  revenueWeekData,
+  revenueYearData,
+  saleMonthData,
+  saleWeekData,
+  saleYearData,
+} from "./chart.data.js";
 
 const Amount = (props) => {
   // console.log(props);
   const [dropValue, setDropValue] = useState("연간");
 
   const [dropOpen, setDropOpen] = useState(false);
+
+  const [purchaseData, setPurchaseData] = useState(purchaseYearData);
+  const [saleData, setSaleData] = useState(saleYearData);
+  const [revenueData, setRevenueData] = useState(revenueYearData);
 
   const dropdownRef = useRef(null);
 
@@ -38,7 +53,7 @@ const Amount = (props) => {
     }
   };
 
-  // console.log(new Date("2023-07-28").getDate());
+  // console.log(new Date(2023, 7, 0).getDate());
 
   // 드롭다운 바깥부분 누르면 닫히도록
   useEffect(() => {
@@ -74,11 +89,34 @@ const Amount = (props) => {
     );
   };
 
+  // 드롭다운에 따라 데이터값 바뀜
+  useEffect(() => {
+    if (dropValue === "연간") {
+      setPurchaseData(purchaseYearData);
+      setSaleData(saleYearData);
+      setRevenueData(revenueYearData);
+    }
+    if (dropValue === "월간") {
+      setPurchaseData(purchaseMonthData);
+      setSaleData(saleMonthData);
+      setRevenueData(revenueMonthData);
+    }
+    if (dropValue === "주간") {
+      setPurchaseData(purchaseWeekData);
+      setSaleData(saleWeekData);
+      setRevenueData(revenueWeekData);
+    }
+  }, [dropValue]);
+
   return (
     <S.AmountContainer>
       <S.TitleLabel>금액관리</S.TitleLabel>
       <S.AmountSection>
-        <CardBox />
+        <CardBox
+          purchaseData={purchaseData}
+          saleData={saleData}
+          revenueData={revenueData}
+        />
       </S.AmountSection>
 
       <S.ChartContainer>
