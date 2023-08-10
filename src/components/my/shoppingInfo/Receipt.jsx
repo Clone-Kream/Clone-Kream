@@ -54,13 +54,21 @@ const Receipt = (props) => {
   const getDataQuantity = (tabId) => {
     switch (tabId) {
       case "전체":
-        return saleAllData.length;
+        return props.rendered === "판매 내역"
+          ? saleAllData.length
+          : allData.length;
       case "판매대기":
-        return saleWaitingData.length;
+        return props.rendered === "판매 내역"
+          ? saleWaitingData.length
+          : waitingData.length;
       case "판매 중":
-        return saleBuyingData.length;
+        return props.rendered === "판매 내역"
+          ? saleBuyingData.length
+          : buyingData.length;
       case "정산 완료":
-        return saleFinishData.length;
+        return props.rendered === "판매 내역"
+          ? saleFinishData.length
+          : finishData.length;
       default:
         return 0;
     }
@@ -165,7 +173,7 @@ const Receipt = (props) => {
   };
   return (
     <S.PurchaseContainer>
-      <S.TitleLabel>판매내역</S.TitleLabel>
+      <S.TitleLabel>{props.rendered}</S.TitleLabel>
       <div className="total">
         총
         <span className="num">
