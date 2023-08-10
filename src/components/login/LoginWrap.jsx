@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as S from "./login.style";
 import LoginButton from "./LoginButton";
 
@@ -27,9 +27,11 @@ const LoginWrap = () => {
     email: "",
     password: "",
   };
-
   const [loginInput, setloginInput] = useState(initialLoginInput);
-  const [isLoginFormValid, setIsLoginFormValid] = useState(false);
+  const [isLoginInputTouched, setIsLoginInputTouched] = useState({
+    email: false,
+    password: false,
+  });
   const handleLoginInput = (event) => {
     const { name, value } = event.target;
     setloginInput({
@@ -37,10 +39,38 @@ const LoginWrap = () => {
       [name]: value,
     });
   };
-  // 로그인 폼 유효성 검사
-  const handleSubmitLoginForm = (event) => {
-    event.preventDefault();
+  const valueInputBlurHandler = (event) => {
+    const { name, value } = event.target;
+    setIsLoginInputTouched({
+      ...isLoginInputTouched,
+      [name]: true,
+    });
   };
+  const isLoginInputValid = (name) => {
+    if (loginInput[name].trim() === "" || !loginInput.email.includes("@")) {
+      return false;
+    }
+    return true;
+  };
+  let isEmailInvalid = isLoginInputTouched.email && !isLoginInputValid("email");
+  let isPasswordInvalid =
+    isLoginInputTouched.password && !isLoginInputValid("password");
+  const navigate = useNavigate();
+  // 로그인 폼 유효성 검사
+  const isFormValid =
+    isLoginInputValid("email") && isLoginInputValid("password");
+  console.log(isFormValid);
+  const handleSubmitForm = (event) => {
+    event.preventDefault();
+    console.log(isFormValid);
+    if (!isFormValid) {
+      return;
+    }
+    setloginInput(initialLoginInput);
+    setIsLoginInputTouched({ email: false, password: false });
+    navigate("/");
+  };
+
   return (
     <S.Wrapper>
       <S.LoginArea>
@@ -48,24 +78,30 @@ const LoginWrap = () => {
           <h1>KREAM</h1>
           <h3>KICKS RULE EVERYTHING AROUND ME</h3>
         </S.Header>
-        <S.LoginForm onSubmit={handleSubmitLoginForm}>
+        <S.LoginForm onSubmit={handleSubmitForm}>
           <h4>이메일 주소</h4>
-          <input
+          <S.LoginInput
+            valid={isEmailInvalid}
             onChange={handleLoginInput}
+            onBlur={valueInputBlurHandler}
             type="email"
             name="email"
             placeholder="예) kream@kream.co.kr"
             value={loginInput.email}
             autoComplete="off"
           />
+          {isEmailInvalid && <p>이메일 주소를 정확히 입력해주세요.</p>}
           <h5>비밀번호</h5>
-          <input
+          <S.LoginInput
+            valid={isPasswordInvalid}
             onChange={handleLoginInput}
+            onBlur={valueInputBlurHandler}
             type="password"
             name="password"
             value={loginInput.password}
             autoComplete="off"
           />
+          {isPasswordInvalid && <p>공백을 제외하고 입력해주세요.</p>}
           <LoginButton item={emailLogin} />
         </S.LoginForm>
         <S.SignUp>

@@ -32,22 +32,17 @@ export const LoginForm = styled.form`
   margin-top: 6rem;
   display: flex;
   flex-direction: column;
-  input {
-    margin: 1rem 0rem;
-    border: none;
-    border-bottom: 0.08rem solid rgba(0, 0, 0, 0.3);
-    padding-bottom: 1rem;
-    outline: none;
-    transition: 0.1s;
-  }
-  input::placeholder {
-    color: #bcbcbc;
-    font-size: 1.4rem;
-  }
   h4 {
     margin-left: 0.1rem;
     margin-bottom: 1rem;
     font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  p {
+    margin-left: 0.3rem;
+    color: salmon;
+    margin-bottom: 0.3rem;
     font-weight: 600;
   }
   h5 {
@@ -55,6 +50,21 @@ export const LoginForm = styled.form`
     margin-top: 1rem;
     font-size: 1.2rem;
     font-weight: 600;
+  }
+`;
+export const LoginInput = styled.input`
+  margin: 1rem 0rem;
+  border: none;
+  ${(props) =>
+    props.valid
+      ? `border-bottom: 0.08rem solid salmon;`
+      : `border-bottom: 0.08rem solid rgba(0, 0, 0, 0.3)`};
+  padding-bottom: 1rem;
+  outline: none;
+  transition: 0.1s;
+  input::placeholder {
+    color: #bcbcbc;
+    font-size: 1.4rem;
   }
 `;
 export const SignUp = styled.div`
@@ -69,13 +79,6 @@ export const SignUp = styled.div`
   }
 `;
 export const LoginButton = styled.button`
-  ${(props) => {
-    if (props.loginby === "email") {
-      return css`
-        background-color: red;
-      `;
-    }
-  }}
   width: 100%;
   height: 5rem;
   margin-top: 1rem;
@@ -91,6 +94,8 @@ export const LoginButton = styled.button`
   font-weight: 600;
   font-size: 1.4rem;
   cursor: pointer;
+${(props) => props.valid && `background-color: black; color:white;`}
+
   a {
     color: black;
     text-decoration: none;

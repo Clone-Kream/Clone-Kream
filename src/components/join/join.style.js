@@ -112,17 +112,13 @@ export const JoinForm = styled.form`
   margin-top: 6rem;
   display: flex;
   flex-direction: column;
-  input {
-    margin-top: 1rem;
-    border: none;
-    border-bottom: 0.08rem solid rgba(0, 0, 0, 0.3);
-    padding-bottom: 1rem;
-    outline: none;
-    transition: 0.1s;
-  }
-  input::placeholder {
-    color: #bcbcbc;
-    font-size: 1.4rem;
+  div {
+    display: flex;
+    align-items: center;
+    svg {
+      margin-top: 0.2rem;
+      margin-left: 0.5rem;
+    }
   }
   h4 {
     margin-top: 1.5rem;
@@ -130,6 +126,27 @@ export const JoinForm = styled.form`
     margin-bottom: 1rem;
     font-size: 1.2rem;
     font-weight: 600;
+  }
+  p {
+    margin-left: 0.3rem;
+    color: salmon;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+  }
+`;
+export const JoinInput = styled.input`
+  margin: 1rem 0rem;
+  border: none;
+  ${(props) =>
+    props.valid
+      ? `border-bottom: 0.08rem solid salmon;`
+      : `border-bottom: 0.08rem solid rgba(0, 0, 0, 0.3)`};
+  padding-bottom: 1rem;
+  outline: none;
+  transition: 0.1s;
+  input::placeholder {
+    color: #bcbcbc;
+    font-size: 1.4rem;
   }
 `;
 export const SignUp = styled.div`
@@ -185,6 +202,16 @@ export const SelectSize = styled.div`
     width: 100%;
     cursor: pointer;
     caret-color: transparent;
+    margin: 1rem 0rem;
+    border: none;
+    border-bottom: 0.08rem solid rgba(0, 0, 0, 0.3);
+    padding-bottom: 1rem;
+    outline: none;
+    transition: 0.1s;
+    input::placeholder {
+      color: #bcbcbc;
+      font-size: 1.4rem;
+    }
   }
 `;
 export const SelectIcon = styled.div`
