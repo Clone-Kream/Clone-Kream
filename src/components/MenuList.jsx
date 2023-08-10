@@ -1,67 +1,58 @@
-import React, { useState } from "react";
+import React from "react";
 import "../css/MenuList.css";
 
-const MenuList = () => {
+const MenuList = ({ selectedMain, selectedSub, onCategorySelect }) => {
   const categories = ["신발", "아우터"];
   const subCategories = {
-    신발: ["스니커즈", "구두"],
+    신발: ["스니커즈", "힐/펌프스"],
     아우터: ["자켓", "아노락"],
   };
 
-  const [selectedMain, setSelectedMain] = useState(null);
-  const [selectedSubs, setSelectedSubs] = useState({});
-
   const handleMainClick = (mainCategory) => {
     if (selectedMain === mainCategory) {
-      setSelectedMain(null);
-      setSelectedSubs({}); // 메인 카테고리 선택 해제 시 서브 카테고리 선택 해제
+      onCategorySelect(null, null); // 선택 해제
     } else {
-      setSelectedMain(mainCategory);
+      onCategorySelect(mainCategory, null);
     }
   };
 
   const handleSubClick = (subCategory) => {
-    setSelectedSubs((prevSelectedSubs) => ({
-      ...prevSelectedSubs,
-      [subCategory]: !prevSelectedSubs[subCategory],
-    }));
+    onCategorySelect(selectedMain, subCategory);
   };
 
   return (
-    <>
-      <ul className="menu_list">
-        {categories.map((category) => (
-          <li key={category} className="category-item">
-            <label className="category-label">
-              <input
-                type="checkbox"
-                value={category}
-                onChange={() => handleMainClick(category)}
-                checked={selectedMain === category}
-              />
-              {category}
-            </label>
-            {selectedMain === category && (
-              <ul className="sub-items">
-                {subCategories[category].map((subCategory) => (
-                  <li key={subCategory}>
-                    <label className="category-label">
-                      <input
-                        type="checkbox"
-                        value={subCategory}
-                        onChange={() => handleSubClick(subCategory)}
-                        checked={selectedSubs[subCategory] || false}
-                      />
-                    </label>
-                    {subCategory}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </li>
-        ))}
-      </ul>
-    </>
+    <ul className="menu_list">
+      {categories.map((category) => (
+        <li key={category} className="category-item">
+          <label className="category-label">
+            <input
+              type="checkbox"
+              value={category}
+              onChange={() => handleMainClick(category)}
+              checked={selectedMain === category}
+            />
+            {category}
+          </label>
+          {selectedMain === category && (
+            <ul className="sub-items">
+              {subCategories[category].map((subCategory) => (
+                <li key={subCategory}>
+                  <label className="category-label">
+                    <input
+                      type="checkbox"
+                      value={subCategory}
+                      onChange={() => handleSubClick(subCategory)}
+                      checked={selectedSub === subCategory}
+                    />
+                  </label>
+                  {subCategory}
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))}
+    </ul>
   );
 };
 

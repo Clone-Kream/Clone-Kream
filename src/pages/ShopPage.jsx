@@ -7,16 +7,23 @@ import ShopProduct from "../components/ShopProduct";
 
 const ShopPage = () => {
   const [menuVisible, setMenuVisible] = useState(true); // 메뉴리스트 보이기/감추기 상태
+  const [selectedMain, setSelectedMain] = useState(null); // 선택된 메인 카테고리 상태
+  const [selectedSub, setSelectedSub] = useState(null); // 선택된 서브 카테고리 상태
 
   const handleMenuToggle = () => {
     setMenuVisible((prevVisible) => !prevVisible);
+  };
+
+  const handleCategorySelect = (mainCategory, subCategory) => {
+    setSelectedMain(mainCategory);
+    setSelectedSub(subCategory);
   };
 
   return (
     <>
       <Header />
       <div className="content">
-        <aside className="catagory">
+        <aside className="category">
           <div className="search_filter">
             <div className="filter_status">
               <div className="status_box">
@@ -31,14 +38,13 @@ const ShopPage = () => {
             </div>
             <div className="filter_list">
               <div className="filter_title">
-                <div className="tilte_box">
-                  <span className="mian_title">카테고리</span>
+                <div className="title_box">
+                  <span className="main_title">카테고리</span>
                   {!menuVisible && (
                     <span className="placeholder">모든 카테고리</span>
                   )}
                 </div>
                 <div className="icon_box">
-                  {/* 이미지 클릭 이벤트 핸들러 추가 */}
                   <img
                     src={menuVisible ? "/assets/minus.svg" : "/assets/plus.svg"}
                     alt=""
@@ -47,11 +53,19 @@ const ShopPage = () => {
                   />
                 </div>
               </div>
-              <div className="filter_menu">{menuVisible && <MenuList />}</div>
+              <div className="filter_menu">
+                {menuVisible && (
+                  <MenuList
+                    selectedMain={selectedMain}
+                    selectedSub={selectedSub}
+                    onCategorySelect={handleCategorySelect}
+                  />
+                )}
+              </div>
             </div>
           </div>
         </aside>
-        <ShopProduct />
+        <ShopProduct selectedMain={selectedMain} selectedSub={selectedSub} />
       </div>
     </>
   );
