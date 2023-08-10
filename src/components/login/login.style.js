@@ -5,9 +5,7 @@ export const Wrapper = styled.section`
   height: 100vh;
   overflow: hidden;
   box-sizing: border-box;
-  /* background-color: pink; */
   .login {
-    /* padding-top: 15.6rem; */
     width: 100%;
     height: 5.6rem;
   }
@@ -15,7 +13,7 @@ export const Wrapper = styled.section`
 export const LoginArea = styled.main`
   max-width: 42rem;
   margin: 12rem auto;
-  padding: 6rem 6rem 0;
+  padding: 0 6rem;
 `;
 export const Header = styled.header`
   text-align: center;

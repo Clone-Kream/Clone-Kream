@@ -38,6 +38,7 @@
   box-sizing: border-box;
   align-items: center;
   flex-wrap: wrap;
+  cursor: pointer;
 }
 .product img {
   background-color: rgb(244, 244, 244);
@@ -74,4 +75,5 @@ button {
   background-color: #fff;
   border-radius: 12px;
   border: 1px solid #d3d3d3;
+  cursor: pointer;
 }

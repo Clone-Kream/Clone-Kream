@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import * as S from "./login.style";
 import LoginButton from "./LoginButton";
@@ -31,7 +31,7 @@ const LoginWrap = () => {
   };
 
   const [loginInput, setloginInput] = useState(initialLoginInput);
-  const [isLoginFormValid, setIsLoginFormValid] = useState(false);
+  // const [isLoginFormValid, setIsLoginFormValid] = useState(false);
   const handleLoginInput = (event) => {
     const { name, value } = event.target;
     setloginInput({

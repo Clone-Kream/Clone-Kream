@@ -6,7 +6,9 @@ export const MyContainer = styled.div`
   display: flex;
   justify-content: space-between;
 
-  padding-top: 6.4rem;
+  /* padding-top: 10rem; */
+
+  padding: 10rem 4rem 10rem;
 `;
 
 export const Label = styled.label`
@@ -23,9 +25,10 @@ export const Mypage = styled.div`
 `;
 
 export const Nav = styled.nav`
-  width: 18rem;
+  width: 20rem;
   height: 300px;
   position: sticky;
+  /* background-color: pink; */
   /* top: 6.4rem; */
   top: 1rem;
   .shopping {
@@ -57,7 +60,7 @@ export const Nav = styled.nav`
 `;
 
 export const Section = styled.section`
-  width: 100rem;
+  width: 96rem;
 `;
 
 // 마이페이지

@@ -6,6 +6,7 @@ import Amount from "./myInfo/Amount";
 import * as S from "./my.style";
 import { shoppingInfo, myInfo } from "../my/my.data";
 import Receipt from "./shoppingInfo/Receipt";
+import Header from "../Header";
 
 const MyWrap = () => {
   //localStorage로 저장해서 있으면 해당걸로, 없으면 마이페이지로
@@ -59,23 +60,26 @@ const MyWrap = () => {
   };
 
   return (
-    <S.MyContainer>
-      <S.Nav>
-        <S.Mypage onClick={clickRenderPage}>마이 페이지</S.Mypage>
+    <>
+      <Header />
+      <S.MyContainer>
+        <S.Nav>
+          <S.Mypage onClick={clickRenderPage}>마이 페이지</S.Mypage>
 
-        <div className="shopping">
-          <S.Label>쇼핑 정보</S.Label>
-          <div className="shopping-info-list">{getShoppingInfo()}</div>
-        </div>
+          <div className="shopping">
+            <S.Label>쇼핑 정보</S.Label>
+            <div className="shopping-info-list">{getShoppingInfo()}</div>
+          </div>
 
-        <div className="my">
-          <S.Label>내 정보</S.Label>
-          <div className="my-info-list">{getMyInfo()}</div>
-        </div>
-      </S.Nav>
+          <div className="my">
+            <S.Label>내 정보</S.Label>
+            <div className="my-info-list">{getMyInfo()}</div>
+          </div>
+        </S.Nav>
 
-      <S.Section>{renderPage[rendered]}</S.Section>
-    </S.MyContainer>
+        <S.Section>{renderPage[rendered]}</S.Section>
+      </S.MyContainer>
+    </>
   );
 };
 

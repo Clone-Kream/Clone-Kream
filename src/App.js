@@ -14,6 +14,7 @@ import {
   JoinPage,
 } from "./pages";
 import GlobalStyle from "./global/GlobalStyle";
+import Header from "./components/Header";
 
 function App() {
   return (

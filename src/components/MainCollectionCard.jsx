@@ -5,9 +5,9 @@ import { collectionData } from "../data/collectionData";
 const MainCollectionCard = () => {
   return (
     <div className="collection_container">
-      {collectionData.slice(0, 10).map((item) => {
+      {collectionData.slice(0, 10).map((item, el) => {
         return (
-          <div className="collection_item">
+          <div className="collection_item" key={el}>
             <div className="collection_img">
               <img src={item.imageUrl} alt={item.title} />
             </div>
