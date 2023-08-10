@@ -1,0 +1,123 @@
+.swiperproduct_wrap{
+    padding-top: 10px;
+}
+.swiperproduct_wrap::before{
+background: #ebebeb;
+  content: "";
+  display: block;
+  height: 1px;
+  margin: 28px auto 20px;
+  max-width: 1120px;
+  width: 100%;
+}
+.top-rank{
+    overflow: visible; 
+    position: relative;
+    padding: 20px 50px;
+    box-sizing: border-box;
+}
+.top-rank .swiper{
+    height: auto;
+}
+.top-rank .swiper-slide{
+    height: 260px;
+}
+.top-rank .swiper-slide img{
+    width: 100%;
+    border-radius: 10px;
+}
+.sub{
+    color: rgba(34,34,34,.5);
+    font-size: 15px;
+    margin-top: 2px;
+}
+
+.slide-content p{
+    padding-left:10px;
+    position: absolute;
+    bottom: 10px;
+    font-weight: bold;
+    font-size: 13px;
+    color: white;
+}
+
+.slide-content {
+    position: relative; /* 상대 위치를 설정하여 오버레이를 배치합니다. */
+  }
+  
+  .image-container {
+    position: relative;
+    display: inline-block; /* 이미지와 동그라미를 같은 줄에 표시합니다. */
+  }
+  
+  .circle-overlay {
+    position: absolute;
+    top: 10px; /* 이미지의 상단 여백 설정 */
+    left: 10px; /* 이미지의 좌측 여백 설정 */
+    width: 40px; /* 동그라미의 너비 설정 */
+    height: 40px; /* 동그라미의 높이 설정 */
+    border: 2px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* 내부 이미지가 동그라미를 벗어나지 않도록 설정 */
+  }
+  
+  .circle-overlay .circle {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 이미지를 동그라미에 가득 차게 표시 */
+    border-radius: 50%;
+  }
+
+  .top-rank {
+    position: relative;
+    padding: 20px 50px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .custom-prev{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: url(/public/assets/prevarrow.svg) no-repeat center / 80px 80px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transform: translateY(-50%); /* 버튼을 수직 중앙에 정렬 */
+    top: 50%; /* 버튼을 수직 중앙에 정렬 */
+    z-index: 10;
+    left:25px;
+    opacity: 0; /* 초기에는 숨겨진 상태 */
+  transition: opacity 0.3s ease; /* 투명도 변화에 애니메이션 적용 */
+  }
+  .custom-next {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: url(/public/assets/nextarrow.svg) no-repeat center / 80px 80px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transform: translateY(-50%); /* 버튼을 수직 중앙에 정렬 */
+    top: 50%; /* 버튼을 수직 중앙에 정렬 */
+    z-index: 10;
+    right:25px;
+    opacity: 0; /* 초기에는 숨겨진 상태 */
+  transition: opacity 0.3s ease; /* 투명도 변화에 애니메이션 적용 */
+  }
+
+  .top-rank:hover .custom-prev,
+.top-rank:hover .custom-next {
+    
+  opacity: 1;
+}

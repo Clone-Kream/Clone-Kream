@@ -8,6 +8,21 @@ import collectionimg7 from "../image/collection/collection7.png";
 import collectionimg8 from "../image/collection/collection8.png";
 import collectionimg9 from "../image/collection/collection9.png";
 import collectionimg10 from "../image/collection/collection10.png";
+import collectionimg11 from "../image/collection/collection11.png";
+import collectionimg12 from "../image/collection/collection12.png";
+import collectionimg13 from "../image/collection/collection13.png";
+import collectionimg14 from "../image/collection/collection14.png";
+import collectionimg15 from "../image/collection/collection15.png";
+import collectionimg16 from "../image/collection/collection16.png";
+import collectionimg17 from "../image/collection/collection17.png";
+import collectionimg18 from "../image/collection/collection18.png";
+import collectionimg19 from "../image/collection/collection19.png";
+import collectionimg20 from "../image/collection/collection20.png";
+import collectionimg21 from "../image/collection/collection21.png";
+import collectionimg22 from "../image/collection/collection22.png";
+import collectionimg23 from "../image/collection/collection23.png";
+import collectionimg24 from "../image/collection/collection24.png";
+import collectionimg25 from "../image/collection/collection25.png";
 
 export const collectionData = [
   {
@@ -59,5 +74,80 @@ export const collectionData = [
     id: 9,
     imageUrl: collectionimg10,
     title: "누구나 포인트",
+  },
+  {
+    id: 10,
+    imageUrl: collectionimg11,
+    title: "스투시",
+  },
+  {
+    id: 11,
+    imageUrl: collectionimg12,
+    title: "코스",
+  },
+  {
+    id: 12,
+    imageUrl: collectionimg13,
+    title: "나이키",
+  },
+  {
+    id: 13,
+    imageUrl: collectionimg14,
+    title: "아이앱 스튜디오",
+  },
+  {
+    id: 14,
+    imageUrl: collectionimg15,
+    title: "조던",
+  },
+  {
+    id: 15,
+    imageUrl: collectionimg16,
+    title: "애플",
+  },
+  {
+    id: 16,
+    imageUrl: collectionimg17,
+    title: "심채운",
+  },
+  {
+    id: 17,
+    imageUrl: collectionimg18,
+    title: "아디다스",
+  },
+  {
+    id: 18,
+    imageUrl: collectionimg19,
+    title: "한명수",
+  },
+  {
+    id: 19,
+    imageUrl: collectionimg20,
+    title: "슈프림",
+  },
+  {
+    id: 20,
+    imageUrl: collectionimg21,
+    title: "문지은",
+  },
+  {
+    id: 21,
+    imageUrl: collectionimg22,
+    title: "아스히로",
+  },
+  {
+    id: 22,
+    imageUrl: collectionimg23,
+    title: "아크테릭스",
+  },
+  {
+    id: 23,
+    imageUrl: collectionimg24,
+    title: "메종 키츠네",
+  },
+  {
+    id: 24,
+    imageUrl: collectionimg25,
+    title: "아식스",
   },
 ];

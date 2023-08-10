@@ -18,6 +18,7 @@ export const productData = [
     price: "160,000원",
     description:
       "나이키 x 빌리 아일리시 에어 알파 포스 88 파이어 레드 앤 화이트",
+    subdescription: "즉시 구매가",
     imageUrl: image1,
   },
   {

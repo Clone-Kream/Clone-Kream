@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
 import { productData } from "../data/productData";
-import "../css/ProductList.css";
+import "../css/PopularList.css";
 
-const ProductList = () => {
+const PopularList = () => {
   const [visibleProducts, setVisibleProducts] = useState(
     productData.slice(0, 4) //초기값
   );
@@ -23,10 +24,10 @@ const ProductList = () => {
 
   return (
     <>
-      <div className="product_wrap">
+      <div className="popularproduct_wrap">
         <div className="info">
-          <p className="main_title">Just Dropped</p>
-          <p className="sub_title">발매 상품</p>
+          <p className="main_title">Most Popular</p>
+          <p className="sub_title">인기 상품</p>
         </div>
         <div className="product_container">
           {visibleProducts.map((product) => (
@@ -49,4 +50,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default PopularList;

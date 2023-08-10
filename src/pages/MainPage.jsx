@@ -1,10 +1,14 @@
 import React from "react";
 import Header from "../components/Header";
 import SwiperBanner from "../components/SwiperBanner";
-import { collectionData } from "../data/collectionData";
 import MainCollectionCard from "../components/MainCollectionCard";
-import "../css/MainPage.css";
 import ProductList from "../components/ProductList";
+import SubCollectionCard from "../components/SubCollerctionCard";
+import "../css/MainPage.css";
+import "../css/MainCollection.css";
+import { bannerData } from "../data/bannerData";
+import PopularList from "../components/PopularList";
+import SwiperProduct from "../components/SwiperProduct";
 
 const MainPage = () => {
   return (
@@ -12,12 +16,23 @@ const MainPage = () => {
       <Header />
       <SwiperBanner />
       <div className="homecard_container">
-        <div className="collection_container">
-          {collectionData.slice(0, 10).map((item, index) => {
-            return <MainCollectionCard key={index} collectionitem={item} />;
-          })}
-        </div>
+        <MainCollectionCard />
         <ProductList />
+        <SubCollectionCard />
+      </div>
+      <div
+        className="banner_item"
+        style={{ backgroundColor: bannerData[0].color }}
+      >
+        <div className="item_inner">
+          <div className="img_box">
+            <img src={bannerData[0].imageUrl}></img>
+          </div>
+        </div>
+      </div>
+      <div className="homecard_container">
+        <PopularList />
+        <SwiperProduct />
       </div>
     </div>
   );

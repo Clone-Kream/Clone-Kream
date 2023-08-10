@@ -1,18 +1,69 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../css/reset.css";
 import "../css/Header.css";
 
 const Header = () => {
   const [selectedTab, setSelectedTab] = useState(0);
-  const [selectedNav, setSelectedNav] = useState(0);
+
+  const location = useLocation();
+  // console.log(location);
+
+  const [nowLocation, setNowLocation] = useState(location.pathname);
+  console.log("nowLocation", nowLocation);
+
+  const navigate = useNavigate();
 
   const handleTabClick = (index) => {
     setSelectedTab(index);
   };
-  const handleNavClick = (index) => {
-    setSelectedNav(index);
+
+  const navLists = [
+    { id: "/", value: "HOME" },
+    { id: "/shop", value: "SHOP" },
+    { id: "/search", value: "search" },
+  ];
+
+  const onClickNav = (e) => {
+    const id = e.target.id;
+    setNowLocation(id);
+    // console.log(id);
+    if (id === "/home") {
+      navigate("/");
+    } else {
+      // console.log(id);
+      navigate(`${id}`);
+    }
   };
+
+  const getNavItem = () => {
+    return navLists.map((el) => {
+      if (el.id === "/search") {
+        return (
+          <img
+            src="assets/search.svg"
+            id="/search"
+            alt="search"
+            key={el.id}
+            onClick={onClickNav}
+          ></img>
+        );
+      } else {
+        return (
+          <div
+            key={el.id}
+            id={el.id}
+            className={nowLocation === el.id ? "nav-active" : "navItem"}
+            onClick={onClickNav}
+          >
+            {el.value}
+          </div>
+        );
+      }
+    });
+  };
+
+  // const getClasses =
 
   return (
     <>
@@ -32,35 +83,7 @@ const Header = () => {
               <h1 className="logo">
                 <Link to="/">KREAM</Link>
               </h1>
-              <nav className="gnb">
-                <Link
-                  to="/"
-                  className={selectedNav === 0 ? "active" : ""}
-                  onClick={() => handleNavClick(0)}
-                >
-                  HOME
-                </Link>
-                <Link
-                  to="/style"
-                  className={selectedNav === 1 ? "active" : ""}
-                  onClick={() => handleNavClick(1)}
-                >
-                  STYLE
-                </Link>
-                <Link
-                  to="/search"
-                  className={selectedNav === 2 ? "active" : ""}
-                  onClick={() => handleNavClick(2)}
-                >
-                  SHOP
-                </Link>
-                <Link
-                  className={selectedNav === 3 ? "active" : ""}
-                  onClick={() => handleNavClick(3)}
-                >
-                  <img src="assets/search.svg"></img>
-                </Link>
-              </nav>
+              <nav className="gnb">{getNavItem()}</nav>
             </div>
           </div>
           <nav className="tabs">
