@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import * as S from "./my.style";
 import Direct from "./Direct";
 import History from "./History";
-import profileImg from "../../asset/profile.jpg";
 import {
   allData,
   buyingData,

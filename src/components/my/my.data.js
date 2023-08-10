@@ -22,7 +22,8 @@ export const shoppingInfo = [
   "최근 본 상품",
 ];
 
-export const myInfo = ["금액 관리", "프로필 관리"];
+// export const myInfo = ["금액 관리", "프로필 관리"];
+export const myInfo = ["금액 관리"];
 
 export const tabs = [
   { id: "전체", label: "전체" },
