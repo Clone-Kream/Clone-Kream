@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-export default () => {
+const SwiperBanner = () => {
   return (
     <Swiper
       // install Swiper modules
@@ -17,7 +17,7 @@ export default () => {
       slidesPerView={1}
       navigation
       pagination={{ clickable: true }}
-      onSwiper={(swiper) => console.log(swiper)}
+      // onSwiper={(swiper) => console.log(swiper)}
       onSlideChange={() => console.log("slide change")}
     >
       {swiperBannerData.map((banner, index) => {
@@ -30,3 +30,5 @@ export default () => {
     </Swiper>
   );
 };
+
+export default SwiperBanner;

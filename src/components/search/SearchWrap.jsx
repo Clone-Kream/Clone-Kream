@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import * as S from "./search.style";
 import { propose, popular, recent } from "./search.data";
+import { AiOutlineRollback } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 const SearchWrap = () => {
   /** 추천 검색어 뿌려주는 함수 */
@@ -40,6 +42,8 @@ const SearchWrap = () => {
     getNowTime();
   }, []);
 
+  const navigate = useNavigate();
+
   const { formatMonth: month, day, hour } = getNowTime();
   return (
     <S.Container>
@@ -71,6 +75,8 @@ const SearchWrap = () => {
           <ul>{getRecentProduct()}</ul>
         </S.RecentBox>
       </S.SectionList>
+
+      <AiOutlineRollback onClick={() => navigate("/")} />
     </S.Container>
   );
 };

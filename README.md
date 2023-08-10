@@ -32,3 +32,10 @@
 - Github Flow
 - devMain에서 기능별 브랜치 생성 -> pr후 삭제
 - [참고](https://hudi.blog/git-branch-strategy/)
+
+## 할 것
+
+- 채운
+  - 금액 total 구하는 함수 custom hook으로 따로 빼기
+  - 차트 color 값들 전역변수로 관리
+  - 렌더링 및 메모이제이션 최적화

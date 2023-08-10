@@ -72,7 +72,7 @@ const Header = () => {
           <div className="top_inner">
             <div className="top_list">
               <Link to="/notice">고객센터</Link>
-              <Link to="/my">마이페이지</Link>
+              <Link to="/mypage">마이페이지</Link>
               <Link to="/saved">관심상품</Link>
               <Link to="#notifications">알림</Link>
               <Link to="/">로그아웃</Link>

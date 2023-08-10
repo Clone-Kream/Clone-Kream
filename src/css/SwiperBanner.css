@@ -15,8 +15,9 @@
   height: 480px;
 }
 /* 네비게이션 버튼 스타일 변경 */
-.swiper-button-next, .swiper-button-prev {
-  color: white!important; 
+.swiper-button-next,
+.swiper-button-prev {
+  color: white !important;
   font-size: 20px;
   background-color: transparent; /* 배경 색상 제거 */
 }
@@ -25,8 +26,7 @@
 .swiper-pagination-bullet {
   width: 8px;
   height: 8px;
-  background-color: white!important; 
+  background-color: white !important;
   opacity: 0.5;
   transition: background-color 0.3s, opacity 0.3s;
 }
-
