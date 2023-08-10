@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import * as S from "./my.style";
 import Direct from "./Direct";
 import History from "./History";
+import profileImg from "../../asset/profile.jpg";
 import {
   allData,
   buyingData,
@@ -10,6 +11,7 @@ import {
   saleBuyingData,
   saleFinishData,
   saleWaitingData,
+  user,
   waitingData,
 } from "./my.data";
 
@@ -60,25 +62,25 @@ const MyInfo = (props) => {
     <>
       <S.MyPageContainer>
         <S.MyMetaBox>
-          <div className="my-meta_img"></div>
+          <img className="my-meta_img" src={user.img} alt="profile" />
           <div className="my-meta">
-            <div className="my-meta_nickname">whgr50</div>
-            <div className="my-meta_email">s*****4@naver.com</div>
+            <div className="my-meta_nickname">{user.name}</div>
+            <div className="my-meta_email">{user.email}</div>
             <div className="my-meta-btn-box">
               <button>프로필 관리</button>
-              <button>내 스타일</button>
+              {/* <button>내 스타일</button> */}
             </div>
           </div>
         </S.MyMetaBox>
 
         <S.UserMetaBox>
           <div className="user-lank label">
-            <div className="my-lank">일반 회원</div>
+            <div className="my-lank">{user.membership}</div>
             <span>회원 등급</span>
           </div>
 
           <div className="user-point label">
-            <div className="my-point">0P</div>
+            <div className="my-point">{user.point}P</div>
             <span>포인트</span>
           </div>
         </S.UserMetaBox>

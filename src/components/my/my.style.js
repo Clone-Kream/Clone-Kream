@@ -78,7 +78,6 @@ export const MyMetaBox = styled.div`
   align-items: center;
 
   .my-meta_img {
-    border: 1px solid;
     box-sizing: border-box;
     width: 10rem;
     height: 10rem;
@@ -175,7 +174,7 @@ export const History = styled.div`
       width: 25rem;
       height: 8.5rem;
       padding-top: 18px;
-      cursor: pointer;
+      cursor: default;
       position: relative;
 
       &_title {

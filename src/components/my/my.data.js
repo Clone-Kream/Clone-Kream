@@ -5,6 +5,15 @@ import img4 from "../../asset/item4.webp";
 import img5 from "../../asset/item5.webp";
 import img6 from "../../asset/item6.webp";
 import img7 from "../../asset/item7.webp";
+import profileImg from "../../asset/profile.jpg";
+
+export const user = {
+  name: "두가두가",
+  email: "s*****4@naver.com",
+  img: profileImg,
+  membership: "일반 회원",
+  point: 415,
+};
 
 export const shoppingInfo = [
   "구매 내역",

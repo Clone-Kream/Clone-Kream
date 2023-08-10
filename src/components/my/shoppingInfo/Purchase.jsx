@@ -78,6 +78,12 @@ const Purchase = () => {
     ));
   };
 
+  /** 금액 format으로 만들어주는 함수 */
+  const formatPrice = (price) => {
+    // console.log(price);
+    return new Intl.NumberFormat().format(price);
+  };
+
   /** DataList를 돌려주는 함수 */
   const mapData = () => {
     let filteredData = [];
@@ -123,7 +129,7 @@ const Purchase = () => {
         </div>
         <div className="item_desc">{data.name}</div>
         <div className="item_desc">
-          {data.price}원({data.quantity}개)
+          {formatPrice(data.price)}원({data.quantity}개)
         </div>
         <div className="item_desc">{data.purchaseDate}</div>
         <div className="item_desc">{data.status}</div>
