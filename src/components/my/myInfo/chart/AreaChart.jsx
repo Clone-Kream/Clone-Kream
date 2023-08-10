@@ -1,18 +1,14 @@
 import React from "react";
-import {
-  months,
-  purchaseYearData,
-  revenueYearData,
-  saleYearData,
-} from "../chart.data";
+
 import ApexChart from "react-apexcharts";
 
-const AreaChart = () => {
+const AreaChart = (props) => {
+  console.log(props.changeUnit);
+  // AreaChart 정보(비교)
   const comparisonChartInfo = {
     options: {
       chart: {
         type: "area",
-        height: "60rem",
         toolbar: {
           show: false,
         },
@@ -21,8 +17,7 @@ const AreaChart = () => {
         },
       },
       xaxis: {
-        //x축
-        categories: months,
+        categories: props.changeUnit,
       },
       stroke: {
         curve: "smooth",
@@ -32,15 +27,17 @@ const AreaChart = () => {
         width: 2,
       },
       dataLabels: {
-        // 꼭짓점에 생기는 값
         enabled: false,
       },
       tooltip: {
         enabled: true,
         custom: function ({ series, dataPointIndex }) {
           const colors = ["#4241a4", "#5e87fe", "#fa6e7a"];
+
           return `<div class="tooltip">
-              <div class="header">${dataPointIndex + 1}월</div>
+              <div class="header">${props.checkDataPointIndex(
+                dataPointIndex + 1
+              )}${props.unit}</div>
               <div class="item">
               <span class="circle" style="background-color : ${
                 colors[0]
@@ -78,20 +75,17 @@ const AreaChart = () => {
         fontSize: 15,
         fontWeight: 700,
         labels: {
-          // 글씨
           colors: ["#4d4cac", "#659cff", "#ff808b"],
           useSeriesColors: false,
         },
         markers: {
           width: 15,
           height: 15,
-          // strokeColor: "#fff",
           fillColors: ["#4d4cac", "#659cff", "#ff808b"],
         },
       },
 
       markers: {
-        // strokeColor: "#3182f6",
         strokeColor: ["#4d4cac", "#659cff", "#ff808b"],
         size: 2,
         colors: ["#4d4cac", "#659cff", "#ff808b"],
@@ -100,15 +94,15 @@ const AreaChart = () => {
     series: [
       {
         name: "구매",
-        data: purchaseYearData,
+        data: props.purchaseData,
       },
       {
         name: "판매",
-        data: saleYearData,
+        data: props.saleData,
       },
       {
         name: "수익",
-        data: revenueYearData,
+        data: props.revenueData,
       },
     ],
   };

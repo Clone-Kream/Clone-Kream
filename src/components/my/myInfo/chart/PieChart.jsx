@@ -1,9 +1,27 @@
 import React from "react";
 import ApexChart from "react-apexcharts";
 
-const PieChart = () => {
+const PieChart = (props) => {
+  /** 총 구매액 구하는 함수 */
+  const getToalPurchase = () => {
+    const total = props.purchaseData.reduce((acc, value) => acc + value, 0);
+    return total;
+  };
+  /** 총 판매액 구하는 함수 */
+  const getToalSale = () => {
+    const total = props.saleData.reduce((acc, value) => acc + value, 0);
+    return total;
+  };
+
+  /** 총 수익 구하는 함수 */
+  const getToalRevenue = () => {
+    const total = props.revenueData.reduce((acc, value) => acc + value, 0);
+    return total;
+  };
+
+  // pie chart 정보
   const pieChartInfo = {
-    series: [50, 80, 40],
+    series: [getToalPurchase(), getToalSale(), getToalRevenue()],
     options: {
       chart: {
         type: "donut",

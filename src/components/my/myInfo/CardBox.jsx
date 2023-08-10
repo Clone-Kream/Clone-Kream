@@ -6,8 +6,6 @@ import {
 } from "react-icons/ai";
 
 const CardBox = (props) => {
-  console.log(props);
-
   /** 금액 format으로 만들어주는 함수 */
   const formatPrice = (price) => {
     // console.log(price);

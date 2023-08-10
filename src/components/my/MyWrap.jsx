@@ -18,7 +18,7 @@ const MyWrap = () => {
     "구매 내역": <Purchase rendered={rendered} setRendered={setRendered} />,
     "판매 내역": <Sale rendered={rendered} setRendered={setRendered} />,
     "관심 상품": <Interest />,
-    "금액 관리": <Amount rendered={rendered} setRendered={setRendered} />,
+    "금액 관리": <Amount />,
     "프로필 관리": <Profile />,
   };
 

@@ -1,8 +1,11 @@
 import React from "react";
-import { months } from "../chart.data";
 import ApexChart from "react-apexcharts";
 
-const BarChart = () => {
+const BarChart = (props) => {
+  const checkData =
+    props.title === "구매량" ? props.purchaseData : props.saleData;
+
+  // barChartInfo
   const barChartInfo = {
     options: {
       chart: {
@@ -25,16 +28,13 @@ const BarChart = () => {
       },
       dataLabels: {
         enabled: true,
-        // formatter: function (val) {
-        //   return val + "원";
-        // },
         style: {
           fontSize: "10px",
           colors: ["#000"],
         },
       },
       xaxis: {
-        categories: months,
+        categories: props.changeUnit,
         axisBorder: {
           show: true,
         },
@@ -51,17 +51,14 @@ const BarChart = () => {
         },
       },
       fill: {
-        colors: ["#4d4cac"],
+        colors: props.title === "구매량" ? ["#4d4cac"] : ["#5e87fe"],
         opacity: 0.7,
       },
     },
     series: [
       {
-        name: "구매량",
-        data: [
-          55000, 45000, 32000, 88000, 71000, 62000, 34000, 0, 74500, 81000,
-          125000, 91000,
-        ],
+        name: `${props.title === "구매량" ? "구매량" : "판매량"}`,
+        data: checkData,
       },
     ],
   };

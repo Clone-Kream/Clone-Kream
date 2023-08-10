@@ -50,10 +50,10 @@ export const revenueMonthData = [
 ];
 
 // 주간 구매 데이터
-export const purchaseWeekData = [50000, 10000, 60000, 0, 90000, 42000, 60000];
+export const purchaseWeekData = [50000, 10000, 60000, 0, 90000, 0, 0];
 
 // 주간 판매 데이터
-export const saleWeekData = [10000, 0, 0, 80000, 30000, 0, 42000];
+export const saleWeekData = [10000, 0, 0, 80000, 30000, 0, 0];
 
 // 주간 수익 데이터
-export const revenueWeekData = [210000, 120000, 0, 0, 0, 35000, 7800];
+export const revenueWeekData = [210000, 120000, 0, 0, 0, 0, 0];
