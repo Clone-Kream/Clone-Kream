@@ -1,35 +1,3 @@
-// import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
-// import { swiperProductData } from "../data/swiperProductData";
-// import { Swiper, SwiperSlide } from "swiper/react";
-// // Import Swiper styles
-// import "swiper/css";
-// import "swiper/css/navigation";
-// import "swiper/css/pagination";
-
-// export default () => {
-//   return (
-//     <Swiper
-//       // install Swiper modules
-//       loop={true}
-//       modules={[Navigation, Pagination, Scrollbar, A11y]}
-//       spaceBetween={30}
-//       slidesPerView={5}
-//       navigation
-//       pagination={{ clickable: true }}
-//       onSwiper={(swiper) => console.log(swiper)}
-//       onSlideChange={() => console.log("slide change")}
-//     >
-//       {swiperProductData.map((banner, index) => {
-//         return (
-//           <SwiperSlide key={index}>
-//             <img className="bannerImg" src={banner.imageUrl} alt="이미지" />
-//           </SwiperSlide>
-//         );
-//       })}
-//     </Swiper>
-//   );
-// };
-
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";

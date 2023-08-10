@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { productData } from "../data/productData";
 import "../css/ProductList.css";
+import { useNavigate } from "react-router";
 
 const ProductList = () => {
   const [visibleProducts, setVisibleProducts] = useState(
@@ -21,6 +22,12 @@ const ProductList = () => {
     }
   };
 
+  const navigate = useNavigate();
+
+  const handleClick = (id) => {
+    navigate(`/product/${id}`);
+  };
+
   return (
     <>
       <div className="product_wrap">
@@ -30,7 +37,11 @@ const ProductList = () => {
         </div>
         <div className="product_container">
           {visibleProducts.map((product) => (
-            <div className="product" key={product.id}>
+            <div
+              className="product"
+              key={product.id}
+              onClick={() => handleClick(product.id)}
+            >
               <img src={product.imageUrl} alt={product.title} />
               <div className="info-box">
                 <p className="brand">{product.brand}</p>
