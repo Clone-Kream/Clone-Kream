@@ -11,9 +11,9 @@ const SubCollectionCard = () => {
         <p className="sub_title">인기 탑 15 브랜드</p>
       </div>
       <div className="collection_container">
-        {collectionData.slice(10, 25).map((item) => {
+        {collectionData.slice(10, 25).map((item, el) => {
           return (
-            <div className="collection_item">
+            <div className="collection_item" key={el}>
               <div className="collection_img">
                 <img src={item.imageUrl} alt={item.title} />
               </div>

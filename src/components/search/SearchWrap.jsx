@@ -1,82 +1,96 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import * as S from "./search.style";
-import { propose, popular, recent } from "./search.data";
 import { AiOutlineRollback } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import ProposeBox from "./ProposeBox";
+import PopularBox from "./PopularBox";
+import RecentBox from "./RecentBox";
+import { AiFillCloseCircle, AiOutlineClose } from "react-icons/ai";
 
 const SearchWrap = () => {
-  /** 추천 검색어 뿌려주는 함수 */
-  const getProposeProduct = () => {
-    return propose.map((el, index) => <li key={index}>{el}</li>);
-  };
-
-  /** 인기 검색어 뿌려주는 함수 */
-  const getPopularProduct = () => {
-    return popular.map((el, index) => (
-      <li key={el.id}>
-        <span>{index + 1}</span>
-        {el.name}
-      </li>
-    ));
-  };
-
-  /** 최근 본 상품 뿌려주는 함수*/
-  const getRecentProduct = () => {
-    return recent.map((el, index) => (
-      <li key={index}>
-        <img src={el.img} alt={el.alt} />
-        <span>{el.desc}</span>
-      </li>
-    ));
-  };
-
-  /** 월,일,시 구해줘서 object로 return 해주는 함수 */
-  const getNowTime = () => {
-    const month = new Date().getMonth() + 1;
-    const formatMonth = month.toString().padStart(2, 0);
-    const day = new Date().getDate().toString().padStart(2, 0);
-    const hour = new Date().getHours().toString().padStart(2, 0);
-    return { formatMonth, day, hour };
-  };
-  useEffect(() => {
-    getNowTime();
-  }, []);
-
   const navigate = useNavigate();
 
-  const { formatMonth: month, day, hour } = getNowTime();
+  const [searchHistory, setSearchHistory] = useState([]);
+
+  const [inputValue, setInputValue] = useState("");
+
+  const onChangeInputValue = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const onKeyUpValue = (e) => {
+    if (e.key === "Enter") {
+      setSearchHistory([...searchHistory, inputValue]);
+      setInputValue("");
+    }
+  };
+
+  const clickSearchOne = (e) => {
+    e.stopPropagation();
+    const elValue = e.currentTarget.querySelector("span").textContent;
+    if (searchHistory.length !== 0) {
+      const filteredList = searchHistory.filter((el) => el !== elValue);
+      console.log(filteredList);
+      setSearchHistory([...filteredList]);
+    }
+  };
+
+  const mapSearchHistory = () => {
+    if (searchHistory.length !== 0) {
+      return searchHistory.map((el, index) => (
+        <div className="search-item" key={index} onClick={clickSearchOne}>
+          <span>{el}</span>
+          <AiOutlineClose />
+        </div>
+      ));
+    }
+  };
+
+  const removeSearchHistory = () => {
+    setSearchHistory([]);
+  };
+
   return (
     <S.Container>
       <S.SearchBox>
-        <input type="text" placeholder="브랜드명, 모델명, 모델번호 등" />
+        <input
+          type="text"
+          placeholder="브랜드명, 모델명, 모델번호 등"
+          value={inputValue}
+          onChange={onChangeInputValue}
+          onKeyUp={onKeyUpValue}
+        />
+        <AiFillCloseCircle
+          className="close"
+          onClick={() => setInputValue("")}
+        />
       </S.SearchBox>
 
-      <S.SectionList>
-        <S.ProposeBox>
-          <S.Label>추천 검색어</S.Label>
-          <ul>{getProposeProduct()}</ul>
-        </S.ProposeBox>
+      <S.HistorySearch>
+        {searchHistory.length !== 0 && (
+          <>
+            <div className="history-meta">
+              <S.Label>최근 본 상품</S.Label>
+              <span onClick={removeSearchHistory}>지우기</span>
+            </div>
+            <div className="search-list">{mapSearchHistory()}</div>
+          </>
+        )}
+      </S.HistorySearch>
 
+      <ProposeBox />
+
+      <S.SectionList>
         <S.PopularBox>
-          <div className="popular-meta">
-            <S.Label>인기 검색어</S.Label>
-            <span>
-              {month}.{day} {hour}:00 기준
-            </span>
-          </div>
-          <ul>{getPopularProduct()}</ul>
+          <PopularBox />
         </S.PopularBox>
 
         <S.RecentBox>
-          <div className="recent-meta">
-            <S.Label>최근 본 상품</S.Label>
-            <span>지우기</span>
-          </div>
-          <ul>{getRecentProduct()}</ul>
+          <RecentBox />
         </S.RecentBox>
       </S.SectionList>
 
-      <AiOutlineRollback onClick={() => navigate("/")} />
+      <AiOutlineRollback className="back" onClick={() => navigate("/")} />
     </S.Container>
   );
 };

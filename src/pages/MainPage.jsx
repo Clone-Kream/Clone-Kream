@@ -26,7 +26,7 @@ const MainPage = () => {
       >
         <div className="item_inner">
           <div className="img_box">
-            <img src={bannerData[0].imageUrl}></img>
+            <img src={bannerData[0].imageUrl} alt="img"></img>
           </div>
         </div>
       </div>
