@@ -1,6 +1,7 @@
 import React from "react";
 import { productData } from "../data/productData";
 import "../css/ProductList.css";
+import { useNavigate } from "react-router";
 
 const ShopProduct = ({ selectedMain, selectedSub }) => {
   const filteredProducts = productData.filter((product) => {
@@ -19,11 +20,21 @@ const ShopProduct = ({ selectedMain, selectedSub }) => {
     return false;
   });
 
+  const navigate = useNavigate();
+
+  const handleClick = (id) => {
+    navigate(`/product/${id}`);
+  };
+
   return (
     <div className="product_wrap">
       <div className="product_container">
         {filteredProducts.map((product) => (
-          <div className="product" key={product.id}>
+          <div
+            className="product"
+            key={product.id}
+            onClick={() => handleClick(product.id)}
+          >
             <img src={product.imageUrl} alt={product.title} />
             <div className="info-box">
               <p className="brand">{product.brand}</p>

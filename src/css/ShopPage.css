@@ -1,5 +1,4 @@
 .content{
-    margin-top: 230px;
     display: flex;
     margin-left: auto;
     margin-right: auto;
@@ -78,4 +77,11 @@
     display: flex;
     color: #767676;
     padding-top: 20px;
+}
+.category{
+    margin-top: 40px;
+}
+.thunder{
+    width: 12px;
+    height: 12px;
 }

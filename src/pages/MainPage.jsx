@@ -7,7 +7,6 @@ import SubCollectionCard from "../components/SubCollerctionCard";
 import "../css/MainPage.css";
 import "../css/MainCollection.css";
 import { bannerData } from "../data/bannerData";
-import PopularList from "../components/PopularList";
 import SwiperProduct from "../components/SwiperProduct";
 
 const MainPage = () => {
@@ -31,7 +30,7 @@ const MainPage = () => {
         </div>
       </div>
       <div className="homecard_container">
-        <PopularList />
+        <ProductList />
         <SwiperProduct />
       </div>
     </div>
