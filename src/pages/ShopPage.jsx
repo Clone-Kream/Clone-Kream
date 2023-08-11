@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
 import "../css/ShopPage.css";
-import { Link } from "react-router-dom";
+import thunder from "../image/png/thunder.png";
 import MenuList from "../components/MenuList";
 import ShopProduct from "../components/ShopProduct";
-
+import SwiperShop from "../components/SwiperShop";
+import "../css/ShopPage.css";
 const ShopPage = () => {
   const [menuVisible, setMenuVisible] = useState(true); // 메뉴리스트 보이기/감추기 상태
   const [selectedMain, setSelectedMain] = useState(null); // 선택된 메인 카테고리 상태
@@ -22,6 +23,7 @@ const ShopPage = () => {
   return (
     <>
       <Header />
+      <SwiperShop />
       <div className="content">
         <aside className="category">
           <div className="search_filter">
@@ -30,10 +32,10 @@ const ShopPage = () => {
                 <p className="status_txt">필터</p>
               </div>
               <div className="filter_express">
-                <Link to="/shop" className="express_btn">
-                  <img src="/image/thunder.png" alt="" />
+                <div className="express_btn">
+                  <img className="thunder" src={thunder} alt="" />
                   <span className="text">빠른배송</span>
-                </Link>
+                </div>
               </div>
             </div>
             <div className="filter_list">

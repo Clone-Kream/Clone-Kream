@@ -21,8 +21,9 @@
   font-size: 20px;
   background-color: transparent; /* 배경 색상 제거 */
 }
-
-/* 페이지네이션 버튼 스타일 변경 */
+.swiper-pagination{
+  bottom: 20px ;
+}
 .swiper-pagination-bullet {
   width: 8px;
   height: 8px;

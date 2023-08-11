@@ -4,21 +4,22 @@ import "../css/ProductList.css";
 import { useNavigate } from "react-router";
 
 const ProductList = () => {
-  const [visibleProducts, setVisibleProducts] = useState(
-    productData.slice(0, 4) //초기값
-  );
-  // 한 페이지에 보여줄 상품 수와 전체 상품 수
   const productsPerPage = 4;
-  const totalProducts = productData.length;
+  const totalProducts = 12; // 최대 12개까지만 보여지도록 설정
+
+  const [visibleProducts, setVisibleProducts] = useState(
+    productData.slice(0, productsPerPage) // 초기값
+  );
+
+  const [page, setPage] = useState(1); // 현재 페이지 상태 변수
 
   const handleShowMore = () => {
-    const currentProductCount = visibleProducts.length; //현재
-    const nextProductCount = currentProductCount + productsPerPage; //다음 보여질 개수
-
-    if (nextProductCount >= totalProducts) {
-      setVisibleProducts(productData);
-    } else {
-      setVisibleProducts(productData.slice(0, nextProductCount));
+    if (page === 1) {
+      setVisibleProducts(productData.slice(0, 2 * productsPerPage));
+      setPage(2);
+    } else if (page === 2) {
+      setVisibleProducts(productData.slice(0, totalProducts));
+      setPage(3);
     }
   };
 
@@ -52,9 +53,7 @@ const ProductList = () => {
             </div>
           ))}
         </div>
-        {visibleProducts.length < totalProducts && (
-          <button onClick={handleShowMore}>더보기</button>
-        )}
+        {page < 3 && <button onClick={handleShowMore}>더보기</button>}
       </div>
     </>
   );
