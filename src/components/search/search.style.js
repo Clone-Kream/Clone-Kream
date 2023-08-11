@@ -6,12 +6,21 @@ export const Container = styled.div`
   width: 80rem;
   margin: 0 auto 5rem;
   position: relative;
-  svg {
+  .back {
     position: absolute;
     width: 4rem;
     height: 4rem;
-    top: 2rem;
-    left: 105%;
+    top: 4rem;
+    left: 110%;
+    cursor: pointer;
+  }
+  .close {
+    width: 2.5rem;
+    height: 2.5rem;
+    fill: #f4f4f4;
+    position: absolute;
+    top: 0;
+    right: 0;
     cursor: pointer;
   }
 `;
@@ -26,15 +35,18 @@ export const SearchBox = styled.div`
   width: 100%;
   height: 4.8rem;
   border-bottom: 3px solid #000;
+  margin-bottom: 2rem;
+  position: relative;
   input {
     width: 100%;
-    padding: 0 0 0 0.1rem;
+    padding: 0 5rem 0 0.1rem;
     border: none;
     height: 2.9rem;
     color: #000;
     font-size: 2.4rem;
     font-weight: 700;
     outline: none;
+
     &::placeholder {
       color: #bcbcbc;
       font-weight: 400;
@@ -47,11 +59,55 @@ export const SectionList = styled.div`
   margin-top: 2rem;
 `;
 
+export const HistorySearch = styled.div`
+  margin-bottom: 2rem;
+  .history-meta {
+    margin-bottom: 1.2rem;
+    span {
+      font-size: 1.3rem;
+      text-decoration: underline;
+      color: #222c;
+      cursor: pointer;
+      margin-left: 0.8rem;
+    }
+  }
+  .search-list {
+    margin-top: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    .search-item {
+      padding: 0.7rem 1.2rem;
+      border: 1px solid #ebebeb;
+      border-radius: 20px;
+      font-size: 1.4rem;
+      color: #222c;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      svg {
+        width: 1rem;
+        height: 1rem;
+        cursor: pointer;
+      }
+      span {
+        cursor: pointer;
+        &:hover {
+          color: #222;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+`;
+
 export const ProposeBox = styled.div`
   padding-bottom: 4rem;
   ul {
     display: flex;
     margin-top: 1.2rem;
+    display: flex;
+    gap: 0.8rem;
   }
   li {
     background-color: #f4f4f4;
@@ -60,8 +116,13 @@ export const ProposeBox = styled.div`
     color: rgba(34, 34, 34, 0.8);
     font-size: 1.4rem;
     padding: 0.8rem 1.2rem;
-    margin: 0 8px 12px 0;
     cursor: pointer;
+    transition: all 0.3s;
+    &:hover {
+      color: #222;
+      font-weight: 700;
+      transform: scale(1.05);
+    }
   }
 `;
 
