@@ -28,8 +28,6 @@ export const Nav = styled.nav`
   width: 20rem;
   height: 300px;
   position: sticky;
-  /* background-color: pink; */
-  /* top: 6.4rem; */
   top: 1rem;
   .shopping {
     &-info-list {
@@ -165,7 +163,6 @@ export const History = styled.div`
     }
   }
   ul {
-    /* background-color: #f2f9f6; */
     border-radius: 1.2rem;
     display: flex;
     justify-content: space-between;
@@ -392,7 +389,6 @@ export const Table = styled.ul`
     align-items: center;
     height: 5rem;
     padding: 0 0 0.5rem 0;
-    /* border-bottom: 1px solid #ccc; */
     background-color: #c9e2ff;
     transition: all 0.3s;
     &:hover {
@@ -426,7 +422,6 @@ export const AmountContainer = styled.div`
 `;
 
 export const AmountSection = styled.div`
-  /* background-color: pink; */
   padding-top: 2rem;
   display: flex;
   align-items: center;

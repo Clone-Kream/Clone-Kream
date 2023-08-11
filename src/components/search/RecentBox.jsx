@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { recent } from "./search.data";
 import * as S from "./search.style";
 import { productData } from "./../../data/productData";
 
 const RecentBox = () => {
   // 로컬 스토리지에서 가져온 데이터
+
   const [currentData, setCurrentData] = useState(
     JSON.parse(localStorage.getItem("current")) || []
   );
@@ -30,12 +30,8 @@ const RecentBox = () => {
 
   const removeCurrentProduct = () => {
     localStorage.removeItem("current");
-    getRecentProduct();
+    setCurrentData([]);
   };
-
-  // useEffect(() => {
-  //   getRecentProduct();
-  // }, [currentData]);
 
   return (
     <>

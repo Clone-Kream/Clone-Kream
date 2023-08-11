@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../css/reset.css";
 import "../css/Header.css";
 import logo from "../asset/logo.png";
+import searchIcon from "../asset/search.svg";
 
 const Header = () => {
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -56,7 +57,7 @@ const Header = () => {
       if (el.id === "/search") {
         return (
           <img
-            src="assets/search.svg"
+            src={searchIcon}
             id="/search"
             alt="search"
             key={el.id}
